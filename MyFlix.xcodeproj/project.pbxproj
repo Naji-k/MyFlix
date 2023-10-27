@@ -7,9 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2B02AB272AEC65F60000DB4B /* NetworkHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B02AB262AEC65F60000DB4B /* NetworkHelper.swift */; };
+		2B02AB292AEC6C5B0000DB4B /* RequestTokenResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B02AB282AEC6C5B0000DB4B /* RequestTokenResponse.swift */; };
+		2B02AB2B2AEC75DE0000DB4B /* SessionRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B02AB2A2AEC75DE0000DB4B /* SessionRequest.swift */; };
+		2B02AB2D2AEC7A460000DB4B /* LoginRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B02AB2C2AEC7A460000DB4B /* LoginRequest.swift */; };
+		2B02AB2F2AEC7E830000DB4B /* TMDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B02AB2E2AEC7E830000DB4B /* TMDB.swift */; };
+		2B6A8E452AE8775E006A18D3 /* Switcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B6A8E442AE8775E006A18D3 /* Switcher.swift */; };
+		2B6A8E472AE878D2006A18D3 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B6A8E462AE878D2006A18D3 /* SearchViewController.swift */; };
+		2B8072AC2AE509B200BE5FC8 /* TMDB Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8072AB2AE509B200BE5FC8 /* TMDB Client.swift */; };
 		2B8B70B22AE263FF00F27652 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8B70B12AE263FF00F27652 /* AppDelegate.swift */; };
 		2B8B70B42AE263FF00F27652 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8B70B32AE263FF00F27652 /* SceneDelegate.swift */; };
-		2B8B70B62AE263FF00F27652 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8B70B52AE263FF00F27652 /* ViewController.swift */; };
 		2B8B70B92AE263FF00F27652 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B8B70B72AE263FF00F27652 /* Main.storyboard */; };
 		2B8B70BC2AE263FF00F27652 /* MyFlix.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2B8B70BA2AE263FF00F27652 /* MyFlix.xcdatamodeld */; };
 		2B8B70BE2AE2640200F27652 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2B8B70BD2AE2640200F27652 /* Assets.xcassets */; };
@@ -17,6 +24,7 @@
 		2B8B70CC2AE2640200F27652 /* MyFlixTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8B70CB2AE2640200F27652 /* MyFlixTests.swift */; };
 		2B8B70D62AE2640200F27652 /* MyFlixUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8B70D52AE2640200F27652 /* MyFlixUITests.swift */; };
 		2B8B70D82AE2640300F27652 /* MyFlixUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8B70D72AE2640300F27652 /* MyFlixUITestsLaunchTests.swift */; };
+		2B8B70E92AE265C400F27652 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8B70E82AE265C400F27652 /* LoginViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,10 +45,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2B02AB262AEC65F60000DB4B /* NetworkHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkHelper.swift; sourceTree = "<group>"; };
+		2B02AB282AEC6C5B0000DB4B /* RequestTokenResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestTokenResponse.swift; sourceTree = "<group>"; };
+		2B02AB2A2AEC75DE0000DB4B /* SessionRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionRequest.swift; sourceTree = "<group>"; };
+		2B02AB2C2AEC7A460000DB4B /* LoginRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRequest.swift; sourceTree = "<group>"; };
+		2B02AB2E2AEC7E830000DB4B /* TMDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDB.swift; sourceTree = "<group>"; };
+		2B6A8E442AE8775E006A18D3 /* Switcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Switcher.swift; sourceTree = "<group>"; };
+		2B6A8E462AE878D2006A18D3 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		2B8072AB2AE509B200BE5FC8 /* TMDB Client.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TMDB Client.swift"; sourceTree = "<group>"; };
 		2B8B70AE2AE263FF00F27652 /* MyFlix.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyFlix.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B8B70B12AE263FF00F27652 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2B8B70B32AE263FF00F27652 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		2B8B70B52AE263FF00F27652 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		2B8B70B82AE263FF00F27652 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2B8B70BB2AE263FF00F27652 /* MyFlix.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MyFlix.xcdatamodel; sourceTree = "<group>"; };
 		2B8B70BD2AE2640200F27652 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -51,6 +66,7 @@
 		2B8B70D12AE2640200F27652 /* MyFlixUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyFlixUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B8B70D52AE2640200F27652 /* MyFlixUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFlixUITests.swift; sourceTree = "<group>"; };
 		2B8B70D72AE2640300F27652 /* MyFlixUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFlixUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		2B8B70E82AE265C400F27652 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +94,48 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2B6A8E432AE8773A006A18D3 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				2B6A8E442AE8775E006A18D3 /* Switcher.swift */,
+				2B02AB262AEC65F60000DB4B /* NetworkHelper.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		2B8072A72AE5093300BE5FC8 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		2B8072A82AE5094C00BE5FC8 /* TMDB Client */ = {
+			isa = PBXGroup;
+			children = (
+				2B8072AB2AE509B200BE5FC8 /* TMDB Client.swift */,
+				2B02AB2E2AEC7E830000DB4B /* TMDB.swift */,
+			);
+			path = "TMDB Client";
+			sourceTree = "<group>";
+		};
+		2B8072A92AE5095900BE5FC8 /* TMDB Requests */ = {
+			isa = PBXGroup;
+			children = (
+				2B02AB2A2AEC75DE0000DB4B /* SessionRequest.swift */,
+				2B02AB2C2AEC7A460000DB4B /* LoginRequest.swift */,
+			);
+			path = "TMDB Requests";
+			sourceTree = "<group>";
+		};
+		2B8072AA2AE5096B00BE5FC8 /* TMDB Response */ = {
+			isa = PBXGroup;
+			children = (
+				2B02AB282AEC6C5B0000DB4B /* RequestTokenResponse.swift */,
+			);
+			path = "TMDB Response";
+			sourceTree = "<group>";
+		};
 		2B8B70A52AE263FF00F27652 = {
 			isa = PBXGroup;
 			children = (
@@ -103,12 +161,13 @@
 			children = (
 				2B8B70B12AE263FF00F27652 /* AppDelegate.swift */,
 				2B8B70B32AE263FF00F27652 /* SceneDelegate.swift */,
-				2B8B70B52AE263FF00F27652 /* ViewController.swift */,
-				2B8B70B72AE263FF00F27652 /* Main.storyboard */,
-				2B8B70BD2AE2640200F27652 /* Assets.xcassets */,
-				2B8B70BF2AE2640200F27652 /* LaunchScreen.storyboard */,
 				2B8B70C22AE2640200F27652 /* Info.plist */,
 				2B8B70BA2AE263FF00F27652 /* MyFlix.xcdatamodeld */,
+				2B6A8E432AE8773A006A18D3 /* Helpers */,
+				2B8B70E72AE2651E00F27652 /* Assets */,
+				2B8B70E62AE2650700F27652 /* Controller */,
+				2B8B70E52AE264FD00F27652 /* View */,
+				2B8B70E42AE264E400F27652 /* Model */,
 			);
 			path = MyFlix;
 			sourceTree = "<group>";
@@ -128,6 +187,43 @@
 				2B8B70D72AE2640300F27652 /* MyFlixUITestsLaunchTests.swift */,
 			);
 			path = MyFlixUITests;
+			sourceTree = "<group>";
+		};
+		2B8B70E42AE264E400F27652 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				2B8072AA2AE5096B00BE5FC8 /* TMDB Response */,
+				2B8072A92AE5095900BE5FC8 /* TMDB Requests */,
+				2B8072A82AE5094C00BE5FC8 /* TMDB Client */,
+				2B8072A72AE5093300BE5FC8 /* Data */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		2B8B70E52AE264FD00F27652 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		2B8B70E62AE2650700F27652 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				2B8B70E82AE265C400F27652 /* LoginViewController.swift */,
+				2B6A8E462AE878D2006A18D3 /* SearchViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		2B8B70E72AE2651E00F27652 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				2B8B70B72AE263FF00F27652 /* Main.storyboard */,
+				2B8B70BD2AE2640200F27652 /* Assets.xcassets */,
+				2B8B70BF2AE2640200F27652 /* LaunchScreen.storyboard */,
+			);
+			path = Assets;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -261,10 +357,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2B02AB2B2AEC75DE0000DB4B /* SessionRequest.swift in Sources */,
+				2B8B70E92AE265C400F27652 /* LoginViewController.swift in Sources */,
+				2B6A8E472AE878D2006A18D3 /* SearchViewController.swift in Sources */,
+				2B8072AC2AE509B200BE5FC8 /* TMDB Client.swift in Sources */,
+				2B02AB2F2AEC7E830000DB4B /* TMDB.swift in Sources */,
+				2B6A8E452AE8775E006A18D3 /* Switcher.swift in Sources */,
+				2B02AB272AEC65F60000DB4B /* NetworkHelper.swift in Sources */,
 				2B8B70BC2AE263FF00F27652 /* MyFlix.xcdatamodeld in Sources */,
-				2B8B70B62AE263FF00F27652 /* ViewController.swift in Sources */,
 				2B8B70B22AE263FF00F27652 /* AppDelegate.swift in Sources */,
+				2B02AB292AEC6C5B0000DB4B /* RequestTokenResponse.swift in Sources */,
 				2B8B70B42AE263FF00F27652 /* SceneDelegate.swift in Sources */,
+				2B02AB2D2AEC7A460000DB4B /* LoginRequest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -441,6 +545,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8R567J3WC5;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MyFlix/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -448,6 +553,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -468,6 +574,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8R567J3WC5;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MyFlix/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -475,6 +582,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
