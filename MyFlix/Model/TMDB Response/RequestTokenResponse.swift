@@ -18,6 +18,5 @@ struct RequestTokenResponse: Codable {
         case success
         case expiresAt = "expires_at"
         case requestToken = "request_token"
-          
     }
 }

@@ -24,7 +24,7 @@
                                 </constraints>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="zlt-Rl-ue8">
-                                <rect key="frame" x="25" y="517.33333333333337" width="343" height="260.66666666666663"/>
+                                <rect key="frame" x="25" y="355.66666666666663" width="343" height="260.66666666666663"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Login with User name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9ac-Qf-zNR">
                                         <rect key="frame" x="0.0" y="0.0" width="343" height="20.333333333333332"/>
@@ -33,7 +33,7 @@
                                         <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="CVf-Kd-USZ" customClass="LoginTextField" customModule="MyFlix" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="32.333333333333258" width="343" height="32"/>
+                                        <rect key="frame" x="0.0" y="32.333333333333314" width="343" height="32"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="32" id="VhB-yv-ZM9"/>
                                         </constraints>
@@ -41,7 +41,7 @@
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Zo5-P7-Pam" customClass="LoginTextField" customModule="MyFlix" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="76.333333333333258" width="343" height="32"/>
+                                        <rect key="frame" x="0.0" y="76.333333333333314" width="343" height="32"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="32" id="EaL-gB-c5h"/>
                                         </constraints>
@@ -49,7 +49,7 @@
                                         <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES" secureTextEntry="YES" textContentType="password"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TV6-0p-Nqf">
-                                        <rect key="frame" x="0.0" y="120.33333333333326" width="343" height="32"/>
+                                        <rect key="frame" x="0.0" y="120.33333333333331" width="343" height="32"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Login"/>
                                         <connections>
@@ -57,20 +57,20 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="OR" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jPT-eb-tTr">
-                                        <rect key="frame" x="0.0" y="164.33333333333326" width="343" height="20.333333333333343"/>
+                                        <rect key="frame" x="0.0" y="164.33333333333331" width="343" height="20.333333333333343"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7LU-ad-UQJ" customClass="LoginButton" customModule="MyFlix" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="196.66666666666663" width="343" height="32"/>
+                                        <rect key="frame" x="0.0" y="196.66666666666669" width="343" height="32"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="32" id="KTS-hT-c2W"/>
                                         </constraints>
                                         <state key="normal" title="Login via Website"/>
                                     </button>
                                     <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="za4-Wy-BK6">
-                                        <rect key="frame" x="0.0" y="240.66666666666663" width="343" height="20"/>
+                                        <rect key="frame" x="0.0" y="240.66666666666669" width="343" height="20"/>
                                     </activityIndicatorView>
                                 </subviews>
                                 <constraints>
@@ -80,18 +80,22 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemGray2Color"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="CdY-SO-HXo" secondAttribute="trailing" constant="80" id="LV2-F7-smv"/>
                             <constraint firstItem="zlt-Rl-ue8" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="25" id="LVB-pK-Szg"/>
                             <constraint firstItem="CdY-SO-HXo" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="60" id="Qcm-aQ-mqX"/>
                             <constraint firstItem="CdY-SO-HXo" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="X9Y-0o-z84"/>
+                            <constraint firstItem="zlt-Rl-ue8" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="60" id="dR2-XV-CdF"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="zlt-Rl-ue8" secondAttribute="trailing" constant="25" id="pzv-8k-dfL"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="zlt-Rl-ue8" secondAttribute="bottom" constant="40" id="xWg-Df-xXf"/>
                             <constraint firstItem="CdY-SO-HXo" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="80" id="xua-eK-E1K"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="Kgh-3V-Hmt" appends="YES" id="NmD-oq-Fx2"/>
+                        </connections>
                     </view>
                     <connections>
-                        <outlet property="activityIndicator" destination="za4-Wy-BK6" id="tId-F7-0xc"/>
+                        <outlet property="activityIndicator" destination="za4-Wy-BK6" id="hc7-pf-ILW"/>
                         <outlet property="loginBtn" destination="TV6-0p-Nqf" id="oQD-ix-Drh"/>
                         <outlet property="loginViaWebsiteButton" destination="7LU-ad-UQJ" id="anG-8C-gMq"/>
                         <outlet property="passwordTextField" destination="Zo5-P7-Pam" id="sio-Tq-Fe9"/>
@@ -99,6 +103,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="Kgh-3V-Hmt">
+                    <connections>
+                        <action selector="tap:" destination="BYZ-38-t0r" id="chr-sE-ls7"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-1576" y="-648"/>
         </scene>
@@ -134,10 +143,10 @@
             </objects>
             <point key="canvasLocation" x="984" y="-1361"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Tab Bar View Controller-->
         <scene sceneID="97Y-Di-qNU">
             <objects>
-                <tabBarController id="bPC-pX-Lm4" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="TabBarViewController" id="bPC-pX-Lm4" customClass="TabBarViewController" customModule="MyFlix" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="YNI-6G-b2X">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>

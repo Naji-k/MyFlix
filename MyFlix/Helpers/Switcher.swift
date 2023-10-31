@@ -20,7 +20,7 @@ class Switcher {
         print("status of userDefaults= ", status)
         
         if (status == true) {
-            let controller = story.instantiateViewController(withIdentifier: "SearchViewController") as! SearchViewController
+            let controller = story.instantiateViewController(withIdentifier: "TabBarViewController") as! TabBarViewController
             rootVC = UINavigationController(rootViewController: controller)
         } else {
             rootVC = story.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController

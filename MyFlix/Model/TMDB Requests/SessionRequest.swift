@@ -7,7 +7,7 @@
 
 import Foundation
 //create SessionId PostRequest
-struct SessionRequest {
+struct SessionRequest: Codable {
     
     let requestToken: String
     
