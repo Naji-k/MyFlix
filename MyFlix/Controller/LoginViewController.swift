@@ -56,10 +56,18 @@ class LoginViewController: UIViewController {
     
     func handleLoginResponse(success: Bool, error: Error?) {
         if success {
+            TMDB.createSessionId(completion: handleSessionId(success:error:))
+        } else {
+            print("login fails ", error)
+        }
+    }
+    func handleSessionId(success: Bool, error: Error?) {
+        if success {
+            print(TMDBClient.Auth.sessionId)
             handleLogin(loggedIn: true)
             print("login success")
         } else {
-            print("login failsHERE", error)
+            print("SessionID error ")
         }
     }
 }

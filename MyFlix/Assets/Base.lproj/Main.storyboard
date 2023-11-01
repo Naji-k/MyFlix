@@ -111,10 +111,10 @@
             </objects>
             <point key="canvasLocation" x="-1576" y="-648"/>
         </scene>
-        <!--View Controller-->
+        <!--Watchlist View Controller-->
         <scene sceneID="c0b-8I-x3k">
             <objects>
-                <viewController id="l2r-hg-ivZ" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="WatchlistViewController" id="l2r-hg-ivZ" customClass="WatchlistViewController" customModule="MyFlix" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="GjE-2U-UmC">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -127,21 +127,50 @@
             </objects>
             <point key="canvasLocation" x="984" y="-485"/>
         </scene>
-        <!--View Controller-->
+        <!--Favorites View Controller-->
         <scene sceneID="DwU-CZ-3cv">
             <objects>
-                <viewController id="1Ye-kK-wqN" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FavoritesViewController" id="1Ye-kK-wqN" customClass="FavoritesViewController" customModule="MyFlix" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="L9e-VX-wm7">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="TNn-e6-LUe">
+                                <rect key="frame" x="16" y="58" width="361" height="794"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MovieTableViewCell" id="qOS-vA-LR7">
+                                        <rect key="frame" x="0.0" y="50" width="361" height="43.666667938232422"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="qOS-vA-LR7" id="XSE-NM-5RK">
+                                            <rect key="frame" x="0.0" y="0.0" width="361" height="43.666667938232422"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="1Ye-kK-wqN" id="aUg-NU-eL5"/>
+                                    <outlet property="delegate" destination="1Ye-kK-wqN" id="3g5-2b-GpJ"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="xOe-w9-pQG"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="TNn-e6-LUe" secondAttribute="bottom" id="GRA-BZ-QnY"/>
+                            <constraint firstItem="TNn-e6-LUe" firstAttribute="top" secondItem="L9e-VX-wm7" secondAttribute="top" constant="58" id="Uit-z5-V7q"/>
+                            <constraint firstItem="xOe-w9-pQG" firstAttribute="trailing" secondItem="TNn-e6-LUe" secondAttribute="trailing" constant="16" id="eLc-TO-IM0"/>
+                            <constraint firstItem="TNn-e6-LUe" firstAttribute="leading" secondItem="xOe-w9-pQG" secondAttribute="leading" constant="16" id="g7v-Z4-OsB"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="K2a-nY-pXn"/>
+                    <connections>
+                        <outlet property="tableView" destination="TNn-e6-LUe" id="YKP-s4-pz0"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="45K-8x-Wfv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="984" y="-1361"/>
+            <point key="canvasLocation" x="983.96946564885491" y="-1361.267605633803"/>
         </scene>
         <!--Tab Bar View Controller-->
         <scene sceneID="97Y-Di-qNU">
