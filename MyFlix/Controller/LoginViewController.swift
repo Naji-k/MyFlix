@@ -40,9 +40,12 @@ class LoginViewController: UIViewController {
     }
     
     fileprivate func handleLogin(loggedIn: Bool){
-        UserDefaults.standard.set(loggedIn, forKey: "status")
+        //here login successfully with SessionID
+        if (getKeychain())
+        {
+            UserDefaults.standard.set(loggedIn, forKey: "status")
+        }
         Switcher.updateRootVC()
-        
     }
     
     func handleRequestTokenResponse(success: Bool, error: Error?) {
@@ -64,10 +67,41 @@ class LoginViewController: UIViewController {
     func handleSessionId(success: Bool, error: Error?) {
         if success {
             print(TMDBClient.Auth.sessionId)
+            setKeychain(sessionId: TMDBClient.Auth.sessionId)
+            let value = getKeychain()
             handleLogin(loggedIn: true)
             print("login success")
         } else {
             print("SessionID error ")
+        }
+    }
+    
+    func getKeychain() -> Bool
+    {
+        let security = SecureStore.init()
+        do {
+            let session = try security.getEntry(forKey: "sessionID")
+            TMDBClient.Auth.sessionId = session ?? ""
+            
+        } catch {
+            print("error > ", error.localizedDescription)
+            return false
+        }
+        if (TMDBClient.Auth.sessionId.isEmpty == false)
+        {
+            return true
+        }
+        return false
+    }
+    
+    func setKeychain(sessionId: String) {
+        let security = SecureStore.init()
+    
+        do {
+            try security.set(entry: sessionId, forKey: "sessionID")
+    
+        } catch {
+            print("error > ", error.localizedDescription)
         }
     }
 }

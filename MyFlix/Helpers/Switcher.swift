@@ -18,7 +18,6 @@ class Switcher {
         
         let story = UIStoryboard(name: "Main", bundle: .main)
         print("status of userDefaults= ", status)
-        
         if (status == true) {
             let controller = story.instantiateViewController(withIdentifier: "TabBarViewController") as! TabBarViewController
             rootVC = UINavigationController(rootViewController: controller)

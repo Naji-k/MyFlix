@@ -26,7 +26,6 @@ class FavoritesViewController: UIViewController {
     func handleGetFavList(success: Bool, error: Error?) {
         if success {
             self.tableView.reloadData()
-            print(MovieData.favList.count)
         } else {
             print(error?.localizedDescription)
         }
@@ -46,14 +45,15 @@ extension FavoritesViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MovieTableViewCell")!
         let movie = MovieData.favList[indexPath.row]
-
-        if #available(iOS 14.0, *) {
-            var content = cell.defaultContentConfiguration()
-            content.text = movie.original_title
-            cell.contentConfiguration = content
-        } else {
-            // Fallback on earlier versions
-            cell.textLabel?.text = movie.original_title
+        let placeHolder = UIImage(named: "PosterPlaceholder")
+        cell.textLabel?.text = movie.original_title
+        cell.imageView?.image = placeHolder
+        if let posterPath = movie.poster_path {
+            TMDB.downloadPosterImage(posterPath: posterPath) { data, error in
+                guard let data = data else { return }
+                cell.imageView?.image = UIImage(data: data)
+                cell.setNeedsLayout()
+            }
         }
         return cell
     }

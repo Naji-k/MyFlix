@@ -11,11 +11,34 @@ class TabBarViewController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
 
+        if (!getKeychain())
+        {
+            UserDefaults.standard.set(false, forKey: "status")
+            Switcher.updateRootVC()
+        }
+        
         // Do any additional setup after loading the view.
     }
     
-
+    func getKeychain() -> Bool
+    {
+        let security = SecureStore.init()
+        do {
+            let session = try security.getEntry(forKey: "sessionID")
+            TMDBClient.Auth.sessionId = session ?? ""
+            
+        } catch {
+            print("error > ", error.localizedDescription)
+            return false
+        }
+        if (TMDBClient.Auth.sessionId.isEmpty == false)
+        {
+            return true
+        }
+        return false
+    }
     /*
     // MARK: - Navigation
 
