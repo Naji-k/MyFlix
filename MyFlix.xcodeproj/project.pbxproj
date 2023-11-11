@@ -32,6 +32,8 @@
 		2B8B70E92AE265C400F27652 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8B70E82AE265C400F27652 /* LoginViewController.swift */; };
 		2BA2ED432AF079F900416570 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BA2ED422AF079F900416570 /* TabBarViewController.swift */; };
 		2BA2ED452AF07D4000416570 /* SessionResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BA2ED442AF07D4000416570 /* SessionResponse.swift */; };
+		2BD34ED42AFEF58000AD688E /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD34ED32AFEF58000AD688E /* DetailViewController.swift */; };
+		2BD34ED62AFF018A00AD688E /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD34ED52AFF018A00AD688E /* SearchTableViewCell.swift */; };
 		2BF595BA2AF5C764003388DC /* KeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BF595B92AF5C764003388DC /* KeychainManager.swift */; };
 /* End PBXBuildFile section */
 
@@ -82,6 +84,8 @@
 		2B8B70E82AE265C400F27652 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		2BA2ED422AF079F900416570 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		2BA2ED442AF07D4000416570 /* SessionResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionResponse.swift; sourceTree = "<group>"; };
+		2BD34ED32AFEF58000AD688E /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		2BD34ED52AFF018A00AD688E /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
 		2BF595B92AF5C764003388DC /* KeychainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -224,6 +228,7 @@
 		2B8B70E52AE264FD00F27652 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				2BD34ED52AFF018A00AD688E /* SearchTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -233,6 +238,7 @@
 			children = (
 				2B8B70E82AE265C400F27652 /* LoginViewController.swift */,
 				2B6A8E462AE878D2006A18D3 /* SearchViewController.swift */,
+				2BD34ED32AFEF58000AD688E /* DetailViewController.swift */,
 				2BA2ED422AF079F900416570 /* TabBarViewController.swift */,
 				2B6D19682AF1C275001222E5 /* FavoritesViewController.swift */,
 				2B6D196A2AF1C288001222E5 /* WatchlistViewController.swift */,
@@ -387,6 +393,7 @@
 				2B6D196F2AF1C55B001222E5 /* MovieResponse.swift in Sources */,
 				2B6A8E472AE878D2006A18D3 /* SearchViewController.swift in Sources */,
 				2BA2ED452AF07D4000416570 /* SessionResponse.swift in Sources */,
+				2BD34ED42AFEF58000AD688E /* DetailViewController.swift in Sources */,
 				2B8072AC2AE509B200BE5FC8 /* TMDB Client.swift in Sources */,
 				2B02AB2F2AEC7E830000DB4B /* TMDB.swift in Sources */,
 				2B6A8E452AE8775E006A18D3 /* Switcher.swift in Sources */,
@@ -395,6 +402,7 @@
 				2B8B70BC2AE263FF00F27652 /* MyFlix.xcdatamodeld in Sources */,
 				2B8B70B22AE263FF00F27652 /* AppDelegate.swift in Sources */,
 				2B6D196B2AF1C288001222E5 /* WatchlistViewController.swift in Sources */,
+				2BD34ED62AFF018A00AD688E /* SearchTableViewCell.swift in Sources */,
 				2B02AB292AEC6C5B0000DB4B /* RequestTokenResponse.swift in Sources */,
 				2BA2ED432AF079F900416570 /* TabBarViewController.swift in Sources */,
 				2B8B70B42AE263FF00F27652 /* SceneDelegate.swift in Sources */,

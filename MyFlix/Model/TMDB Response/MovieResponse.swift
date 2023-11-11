@@ -24,6 +24,10 @@ struct MovieResponse: Codable, Equatable {
     let vote_average: Double
     let vote_count: Int
     
+    //to return Only release year
+    var releaseYear: String {
+        return String(release_date.prefix(4))
+    }
     
     enum CodingKeys: String, CodingKey {
         case adult = "adult"
