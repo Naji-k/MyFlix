@@ -80,7 +80,12 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("selected raw")
+        
+        let movie = resultMovie[indexPath.row]
+        let vc = storyboard?.instantiateViewController(withIdentifier: "DetailViewController") as! DetailViewController
+        vc.movie = movie
+        navigationController?.pushViewController(vc, animated: true)
+        
     }
     
     

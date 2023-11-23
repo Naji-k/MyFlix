@@ -46,7 +46,7 @@ extension FavoritesViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MovieTableViewCell")!
         let movie = MovieData.favList[indexPath.row]
         let placeHolder = UIImage(named: "PosterPlaceholder")
-        cell.textLabel?.text = movie.original_title
+        cell.textLabel?.text = movie.original_title 
         cell.imageView?.image = placeHolder
         if let posterPath = movie.poster_path {
             TMDB.downloadPosterImage(posterPath: posterPath) { data, error in
@@ -58,5 +58,11 @@ extension FavoritesViewController: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let movie = MovieData.favList[indexPath.row]
+        let vc = storyboard?.instantiateViewController(withIdentifier: "DetailViewController") as! DetailViewController
+        vc.movie = movie
+        navigationController?.pushViewController(vc, animated: true)
+    }
     
 }
