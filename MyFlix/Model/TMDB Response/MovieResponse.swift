@@ -29,6 +29,10 @@ struct MovieResponse: Codable, Equatable {
         return String(release_date.prefix(4))
     }
     
+    var idString: String {
+        return String(id)
+    }
+    
     enum CodingKeys: String, CodingKey {
         case adult = "adult"
         case backdropPath = "backdrop_path"

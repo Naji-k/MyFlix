@@ -15,13 +15,16 @@ class FavoritesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        //here should call favorite cell
         TMDB.getFavoriteList(completion: handleGetFavList(success:error:))
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.tableView.reloadData()
+        
+        navigationController?.navigationBar.topItem?.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
+
     }
     func handleGetFavList(success: Bool, error: Error?) {
         if success {
@@ -62,7 +65,19 @@ extension FavoritesViewController: UITableViewDelegate, UITableViewDataSource {
         let movie = MovieData.favList[indexPath.row]
         let vc = storyboard?.instantiateViewController(withIdentifier: "DetailViewController") as! DetailViewController
         vc.movie = movie
-        navigationController?.pushViewController(vc, animated: true)
+        print(movie.idString)
+        TMDB.getMovieCredits(movieID: movie.idString) { data, error in
+            guard let data = data else {
+                print(error)
+                return
+            }
+            DispatchQueue.main.async {
+                vc.actorList = data.cast
+            }
+            print("selected movie cast count" +  String(data.crew.count))
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+        
     }
     
 }

@@ -14,6 +14,11 @@ class WatchlistViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         TMDB.getWatchList(completion: handleGetWatchList(success:error:))
+        
+        let appearance = UINavigationBarAppearance()
+        appearance.configureWithTransparentBackground()
+
+        UINavigationBar.appearance().standardAppearance = appearance
     }
     
     override func viewWillAppear(_ animated: Bool) {
