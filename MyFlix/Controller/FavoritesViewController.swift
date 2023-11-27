@@ -16,6 +16,7 @@ class FavoritesViewController: UIViewController {
         super.viewDidLoad()
 
         TMDB.getFavoriteList(completion: handleGetFavList(success:error:))
+        TMDB.getFavoriteTVList(completion: handleGetFavList(success:error:))
 
     }
     
@@ -42,16 +43,35 @@ extension FavoritesViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return MovieData.favList.count
+//        switch(section)
+//        {
+//        case 0:
+            return MovieData.favList.count
+//        case 1:
+//            return MovieData.favTVList.count
+//        default:
+//            return MovieData.favTVList.count
+//        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//        var item: TVResponse?
         let cell = tableView.dequeueReusableCell(withIdentifier: "MovieTableViewCell")!
-        let movie = MovieData.favList[indexPath.row]
+//        switch (indexPath.section) {
+//        case 0:
+//             item = MovieData.favList[indexPath.row]
+//        case 1:
+//             item = MovieData.favTVList[indexPath.row]
+//        default:
+//             item = MovieData.favTVList[indexPath.row]
+//        }
+
+//        item = MovieData.favTVList[indexPath.row]
+        let item = MovieData.favList[indexPath.row]
         let placeHolder = UIImage(named: "PosterPlaceholder")
-        cell.textLabel?.text = movie.original_title 
+        cell.textLabel?.text = item.original_title
         cell.imageView?.image = placeHolder
-        if let posterPath = movie.poster_path {
+        if let posterPath = item.posterPath {
             TMDB.downloadPosterImage(posterPath: posterPath) { data, error in
                 guard let data = data else { return }
                 cell.imageView?.image = UIImage(data: data)
@@ -65,7 +85,6 @@ extension FavoritesViewController: UITableViewDelegate, UITableViewDataSource {
         let movie = MovieData.favList[indexPath.row]
         let vc = storyboard?.instantiateViewController(withIdentifier: "DetailViewController") as! DetailViewController
         vc.movie = movie
-        print(movie.idString)
         TMDB.getMovieCredits(movieID: movie.idString) { data, error in
             guard let data = data else {
                 print(error)
@@ -74,7 +93,6 @@ extension FavoritesViewController: UITableViewDelegate, UITableViewDataSource {
             DispatchQueue.main.async {
                 vc.actorList = data.cast
             }
-            print("selected movie cast count" +  String(data.crew.count))
             self.navigationController?.pushViewController(vc, animated: true)
         }
         

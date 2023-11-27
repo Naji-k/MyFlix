@@ -28,7 +28,7 @@ class DetailViewController: UIViewController {
             print("no movie")
             return
         }
-        if let image = movie.poster_path {
+        if let image = movie.posterPath {
             TMDB.downloadPosterImage(posterPath: image) { data, error in
                 guard let data = data else { print("error image detailVC"); return }
                 self.imageView.image = UIImage(data: data)
@@ -89,6 +89,24 @@ extension DetailViewController: UICollectionViewDelegate, UICollectionViewDataSo
         }
         
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let vc = storyboard?.instantiateViewController(withIdentifier: "ActorDetailViewController") as! ActorDetailViewController
+        let actorID = actorList[indexPath.row].idString
+        TMDB.getPersonDetails(personID: actorID) { data,error  in
+            guard let data = data else {
+                print(error)
+                return
+            }
+            DispatchQueue.main.async {
+                vc.actor = data
+                
+            }
+            print(data.name)
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+        
     }
     
     //Dynamic layout

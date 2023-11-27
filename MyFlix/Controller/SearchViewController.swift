@@ -68,7 +68,7 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
         cell?.yearLabel.text = movie.releaseYear
         cell?.rateLabel.text = "\(String(format: "%.1f", movie.vote_average))"
         cell?.posterImageView.image = UIImage(named: "PosterPlaceholder")
-        if let posterPath = movie.poster_path {
+        if let posterPath = movie.posterPath {
             TMDB.downloadPosterImage(posterPath: posterPath) { data, error in
                 if let data = data {
                     cell?.imageView?.image = UIImage(data: data)

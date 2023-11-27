@@ -25,6 +25,10 @@ struct Cast: Codable {
     let order: Int?
     let department, job: String?
 
+    var idString: String {
+        return String(id)
+    }
+    
     enum CodingKeys: String, CodingKey {
         case adult, gender, id
         case knownForDepartment = "known_for_department"

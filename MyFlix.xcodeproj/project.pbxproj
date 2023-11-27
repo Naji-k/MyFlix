@@ -37,6 +37,10 @@
 		2BD34ED42AFEF58000AD688E /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD34ED32AFEF58000AD688E /* DetailViewController.swift */; };
 		2BD34ED62AFF018A00AD688E /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD34ED52AFF018A00AD688E /* SearchTableViewCell.swift */; };
 		2BF1E0622B15064D00247132 /* UiView-Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BF1E0612B15064D00247132 /* UiView-Helper.swift */; };
+		2BF1E0642B15127600247132 /* TVResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BF1E0632B15127600247132 /* TVResponse.swift */; };
+		2BF1E0662B15135E00247132 /* TVListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BF1E0652B15135E00247132 /* TVListResponse.swift */; };
+		2BF1E0682B15237A00247132 /* ActorDetailResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BF1E0672B15237A00247132 /* ActorDetailResponse.swift */; };
+		2BF1E06A2B15284B00247132 /* ActorDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BF1E0692B15284B00247132 /* ActorDetailViewController.swift */; };
 		2BF595BA2AF5C764003388DC /* KeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BF595B92AF5C764003388DC /* KeychainManager.swift */; };
 /* End PBXBuildFile section */
 
@@ -92,6 +96,10 @@
 		2BD34ED32AFEF58000AD688E /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		2BD34ED52AFF018A00AD688E /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
 		2BF1E0612B15064D00247132 /* UiView-Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UiView-Helper.swift"; sourceTree = "<group>"; };
+		2BF1E0632B15127600247132 /* TVResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVResponse.swift; sourceTree = "<group>"; };
+		2BF1E0652B15135E00247132 /* TVListResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVListResponse.swift; sourceTree = "<group>"; };
+		2BF1E0672B15237A00247132 /* ActorDetailResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActorDetailResponse.swift; sourceTree = "<group>"; };
+		2BF1E0692B15284B00247132 /* ActorDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActorDetailViewController.swift; sourceTree = "<group>"; };
 		2BF595B92AF5C764003388DC /* KeychainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -153,7 +161,6 @@
 			children = (
 				2B02AB2A2AEC75DE0000DB4B /* SessionRequest.swift */,
 				2B02AB2C2AEC7A460000DB4B /* LoginRequest.swift */,
-				2B6D19702AF1CB77001222E5 /* MovieListResponse.swift */,
 			);
 			path = "TMDB Requests";
 			sourceTree = "<group>";
@@ -165,6 +172,10 @@
 				2BA2ED442AF07D4000416570 /* SessionResponse.swift */,
 				2B6D196E2AF1C55B001222E5 /* MovieResponse.swift */,
 				2B4669862B0FCD5300DAA2C6 /* ActorCrewResponse.swift */,
+				2B6D19702AF1CB77001222E5 /* MovieListResponse.swift */,
+				2BF1E0632B15127600247132 /* TVResponse.swift */,
+				2BF1E0652B15135E00247132 /* TVListResponse.swift */,
+				2BF1E0672B15237A00247132 /* ActorDetailResponse.swift */,
 			);
 			path = "TMDB Response";
 			sourceTree = "<group>";
@@ -251,6 +262,7 @@
 				2BA2ED422AF079F900416570 /* TabBarViewController.swift */,
 				2B6D19682AF1C275001222E5 /* FavoritesViewController.swift */,
 				2B6D196A2AF1C288001222E5 /* WatchlistViewController.swift */,
+				2BF1E0692B15284B00247132 /* ActorDetailViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -407,17 +419,21 @@
 				2BD34ED42AFEF58000AD688E /* DetailViewController.swift in Sources */,
 				2B8072AC2AE509B200BE5FC8 /* TMDB Client.swift in Sources */,
 				2B02AB2F2AEC7E830000DB4B /* TMDB.swift in Sources */,
+				2BF1E0682B15237A00247132 /* ActorDetailResponse.swift in Sources */,
 				2B6A8E452AE8775E006A18D3 /* Switcher.swift in Sources */,
 				2B02AB272AEC65F60000DB4B /* NetworkHelper.swift in Sources */,
 				2B6D196D2AF1C422001222E5 /* MovieData.swift in Sources */,
 				2B8B70BC2AE263FF00F27652 /* MyFlix.xcdatamodeld in Sources */,
 				2B8B70B22AE263FF00F27652 /* AppDelegate.swift in Sources */,
+				2BF1E0662B15135E00247132 /* TVListResponse.swift in Sources */,
 				2B6D196B2AF1C288001222E5 /* WatchlistViewController.swift in Sources */,
+				2BF1E06A2B15284B00247132 /* ActorDetailViewController.swift in Sources */,
 				2B3523D12B14AFBD0029733D /* ActorCollectionViewCell.swift in Sources */,
 				2BD34ED62AFF018A00AD688E /* SearchTableViewCell.swift in Sources */,
 				2B02AB292AEC6C5B0000DB4B /* RequestTokenResponse.swift in Sources */,
 				2BA2ED432AF079F900416570 /* TabBarViewController.swift in Sources */,
 				2B8B70B42AE263FF00F27652 /* SceneDelegate.swift in Sources */,
+				2BF1E0642B15127600247132 /* TVResponse.swift in Sources */,
 				2B6D19692AF1C275001222E5 /* FavoritesViewController.swift in Sources */,
 				2B02AB2D2AEC7A460000DB4B /* LoginRequest.swift in Sources */,
 				2BF595BA2AF5C764003388DC /* KeychainManager.swift in Sources */,

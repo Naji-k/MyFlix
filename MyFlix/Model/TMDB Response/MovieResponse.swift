@@ -17,7 +17,7 @@ struct MovieResponse: Codable, Equatable {
     let original_title: String
     let overview: String
     let popularity: Double
-    let poster_path: String?
+    let posterPath: String?
     let release_date: String
     let title: String
     let video: Bool
@@ -42,7 +42,7 @@ struct MovieResponse: Codable, Equatable {
         case original_title = "original_title"
         case overview = "overview"
         case popularity = "popularity"
-        case poster_path = "poster_path"
+        case posterPath = "poster_path"
         case release_date = "release_date"
         case title = "title"
         case video = "video"

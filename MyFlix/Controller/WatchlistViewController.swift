@@ -51,7 +51,7 @@ extension WatchlistViewController: UITableViewDataSource, UITableViewDelegate {
         let placeHolder = UIImage(named: "PosterPlaceholder")
         cell.textLabel?.text = movie.original_title
         cell.imageView?.image = placeHolder
-        if let posterPath = movie.poster_path {
+        if let posterPath = movie.posterPath {
             TMDB.downloadPosterImage(posterPath: posterPath) { data, error in
                 guard let data = data else { return }
                 cell.imageView?.image = UIImage(data: data)
