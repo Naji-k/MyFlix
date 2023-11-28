@@ -36,6 +36,19 @@ extension UIImageView {
         self.layer.shadowPath = UIBezierPath(roundedRect: self.bounds, cornerRadius: self.layer.cornerRadius).cgPath
     }
     
+    //Helper to make cornerRadius with black shadow to image..(imageView should be inside ContinerView)
+    func applyShadowWithCornerRadius(containerView: UIView, cornerRadius: CGFloat) {
+        containerView.clipsToBounds = false
+        containerView.layer.shadowColor = UIColor.black.cgColor
+        containerView.layer.shadowOpacity = 1
+        containerView.layer.shadowOffset = CGSize.zero
+        containerView.layer.shadowRadius = 10
+        containerView.layer.cornerRadius = cornerRadius
+        containerView.layer.shadowPath = UIBezierPath(roundedRect: containerView.bounds, cornerRadius: cornerRadius).cgPath
+        self.clipsToBounds = true
+        self.layer.cornerRadius = cornerRadius
+    }
+    
     
 //    func downloadImage(from url: String){
 //        let urlRequest = URLRequest(url: URL(string: url)!)

@@ -37,8 +37,7 @@ class DetailViewController: UIViewController {
         if let cover =  movie.backdropPath {
             TMDB.downloadPosterImage(posterPath: cover) { data, error in
                 guard let data = data else {
-                    print("error with cover")
-                    return}
+                    print("error with cover"); return}
                 self.coverImage.image = UIImage(data: data)
             }
         }
@@ -51,13 +50,6 @@ class DetailViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-
-//        scrollView.isScrollEnabled = true
-//        scrollView.contentSize = CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height + 500)
-        
-        print("ActorListCount= \(actorList.count)")
-        print(actorList.count)
-        print("name \(actorList[1].name)")
         
         self.collectionView.reloadData()
         
@@ -101,10 +93,8 @@ extension DetailViewController: UICollectionViewDelegate, UICollectionViewDataSo
             }
             DispatchQueue.main.async {
                 vc.actor = data
-                
             }
-            print(data.name)
-            self.navigationController?.pushViewController(vc, animated: true)
+            self.navigationController?.present(vc, animated: true)
         }
         
     }

@@ -22,7 +22,8 @@ struct ActorDetailResponse: Codable {
     let name: String
     let placeOfBirth: String
     let popularity: Double
-    let profilePath: String
+    let profilePath: String?
+    
     
     enum CodingKeys: String, CodingKey {
        case adult
@@ -39,6 +40,17 @@ struct ActorDetailResponse: Codable {
        case placeOfBirth = "place_of_birth"
        case popularity
        case profilePath = "profile_path"
+    }
+    
+    func calAge(birthday: String) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "YYYY-MM-dd"
+        let birthdateDate = dateFormatter.date(from: birthday)
+        
+        let calendar = Calendar.current
+        let dateComponent = calendar.dateComponents([.year, .month, .day], from: birthdateDate!, to: Date())
+        return (String(dateComponent.year!))
+        
     }
 }
 
