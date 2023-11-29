@@ -23,16 +23,17 @@ class ActorDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         scrollView.isScrollEnabled = true
-        scrollView.contentSize = CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height + 200)
-        
         
     }
+
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        
         guard let actor = actor else {
             return
         }
+        
         ageLabel.text = actor.calAge(birthday: actor.birthday) + " years old"
         nameLabel.text = actor.name
         bioLabel.text = actor.biography
@@ -43,6 +44,12 @@ class ActorDetailViewController: UIViewController {
             }
         }
         profileImage.applyShadowWithCornerRadius(containerView: profileContainerView, cornerRadius: 10)
+        //calculate scrollView Height
+        let fixedWidth = bioLabel.frame.size.width
+        let maximumHeight = CGFloat.greatestFiniteMagnitude
+        let newSize = bioLabel.sizeThatFits(CGSize(width: fixedWidth, height: maximumHeight))
+
+        scrollView.contentSize = CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height + newSize.height)
 
     }
     

@@ -14,7 +14,7 @@ class FavoritesViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         TMDB.getFavoriteList(completion: handleGetFavList(success:error:))
         TMDB.getFavoriteTVList(completion: handleGetFavList(success:error:))
 
@@ -23,7 +23,7 @@ class FavoritesViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.tableView.reloadData()
-        
+//        navigationController?.navigationItem.backButtonTitle = ""
         navigationController?.navigationBar.topItem?.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
 
     }
@@ -84,7 +84,7 @@ extension FavoritesViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let movie = MovieData.favList[indexPath.row]
         let vc = storyboard?.instantiateViewController(withIdentifier: "DetailViewController") as! DetailViewController
-        vc.movie = movie
+//        vc.movie = movie
         TMDB.getMovieCredits(movieID: movie.idString) { data, error in
             guard let data = data else {
                 print(error)

@@ -21,6 +21,9 @@
 		2B6D196D2AF1C422001222E5 /* MovieData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B6D196C2AF1C422001222E5 /* MovieData.swift */; };
 		2B6D196F2AF1C55B001222E5 /* MovieResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B6D196E2AF1C55B001222E5 /* MovieResponse.swift */; };
 		2B6D19712AF1CB77001222E5 /* MovieListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B6D19702AF1CB77001222E5 /* MovieListResponse.swift */; };
+		2B7B23F42B16500A001FB4BC /* MarkFavoriteRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B7B23F32B16500A001FB4BC /* MarkFavoriteRequest.swift */; };
+		2B7B23F62B1653C3001FB4BC /* TMDBResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B7B23F52B1653C3001FB4BC /* TMDBResponse.swift */; };
+		2B7B23F82B166A73001FB4BC /* MultiResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B7B23F72B166A73001FB4BC /* MultiResponse.swift */; };
 		2B8072AC2AE509B200BE5FC8 /* TMDB Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8072AB2AE509B200BE5FC8 /* TMDB Client.swift */; };
 		2B8B70B22AE263FF00F27652 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8B70B12AE263FF00F27652 /* AppDelegate.swift */; };
 		2B8B70B42AE263FF00F27652 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8B70B32AE263FF00F27652 /* SceneDelegate.swift */; };
@@ -32,6 +35,8 @@
 		2B8B70D62AE2640200F27652 /* MyFlixUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8B70D52AE2640200F27652 /* MyFlixUITests.swift */; };
 		2B8B70D82AE2640300F27652 /* MyFlixUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8B70D72AE2640300F27652 /* MyFlixUITestsLaunchTests.swift */; };
 		2B8B70E92AE265C400F27652 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8B70E82AE265C400F27652 /* LoginViewController.swift */; };
+		2B8FDBDC2B175F5E00494EF6 /* Movie.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B8FDBDB2B175F5E00494EF6 /* Movie.storyboard */; };
+		2B8FDBDE2B175FAC00494EF6 /* MovieMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8FDBDD2B175FAC00494EF6 /* MovieMainViewController.swift */; };
 		2BA2ED432AF079F900416570 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BA2ED422AF079F900416570 /* TabBarViewController.swift */; };
 		2BA2ED452AF07D4000416570 /* SessionResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BA2ED442AF07D4000416570 /* SessionResponse.swift */; };
 		2BD34ED42AFEF58000AD688E /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD34ED32AFEF58000AD688E /* DetailViewController.swift */; };
@@ -76,6 +81,9 @@
 		2B6D196C2AF1C422001222E5 /* MovieData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieData.swift; sourceTree = "<group>"; };
 		2B6D196E2AF1C55B001222E5 /* MovieResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieResponse.swift; sourceTree = "<group>"; };
 		2B6D19702AF1CB77001222E5 /* MovieListResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListResponse.swift; sourceTree = "<group>"; };
+		2B7B23F32B16500A001FB4BC /* MarkFavoriteRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkFavoriteRequest.swift; sourceTree = "<group>"; };
+		2B7B23F52B1653C3001FB4BC /* TMDBResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDBResponse.swift; sourceTree = "<group>"; };
+		2B7B23F72B166A73001FB4BC /* MultiResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiResponse.swift; sourceTree = "<group>"; };
 		2B8072AB2AE509B200BE5FC8 /* TMDB Client.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TMDB Client.swift"; sourceTree = "<group>"; };
 		2B8B70AE2AE263FF00F27652 /* MyFlix.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyFlix.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B8B70B12AE263FF00F27652 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -91,6 +99,8 @@
 		2B8B70D52AE2640200F27652 /* MyFlixUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFlixUITests.swift; sourceTree = "<group>"; };
 		2B8B70D72AE2640300F27652 /* MyFlixUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFlixUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		2B8B70E82AE265C400F27652 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		2B8FDBDB2B175F5E00494EF6 /* Movie.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Movie.storyboard; sourceTree = "<group>"; };
+		2B8FDBDD2B175FAC00494EF6 /* MovieMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieMainViewController.swift; sourceTree = "<group>"; };
 		2BA2ED422AF079F900416570 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		2BA2ED442AF07D4000416570 /* SessionResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionResponse.swift; sourceTree = "<group>"; };
 		2BD34ED32AFEF58000AD688E /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
@@ -161,6 +171,7 @@
 			children = (
 				2B02AB2A2AEC75DE0000DB4B /* SessionRequest.swift */,
 				2B02AB2C2AEC7A460000DB4B /* LoginRequest.swift */,
+				2B7B23F32B16500A001FB4BC /* MarkFavoriteRequest.swift */,
 			);
 			path = "TMDB Requests";
 			sourceTree = "<group>";
@@ -176,6 +187,8 @@
 				2BF1E0632B15127600247132 /* TVResponse.swift */,
 				2BF1E0652B15135E00247132 /* TVListResponse.swift */,
 				2BF1E0672B15237A00247132 /* ActorDetailResponse.swift */,
+				2B7B23F52B1653C3001FB4BC /* TMDBResponse.swift */,
+				2B7B23F72B166A73001FB4BC /* MultiResponse.swift */,
 			);
 			path = "TMDB Response";
 			sourceTree = "<group>";
@@ -263,6 +276,7 @@
 				2B6D19682AF1C275001222E5 /* FavoritesViewController.swift */,
 				2B6D196A2AF1C288001222E5 /* WatchlistViewController.swift */,
 				2BF1E0692B15284B00247132 /* ActorDetailViewController.swift */,
+				2B8FDBDD2B175FAC00494EF6 /* MovieMainViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -273,6 +287,7 @@
 				2B8B70B72AE263FF00F27652 /* Main.storyboard */,
 				2B8B70BD2AE2640200F27652 /* Assets.xcassets */,
 				2B8B70BF2AE2640200F27652 /* LaunchScreen.storyboard */,
+				2B8FDBDB2B175F5E00494EF6 /* Movie.storyboard */,
 			);
 			path = Assets;
 			sourceTree = "<group>";
@@ -384,6 +399,7 @@
 				2B8B70C12AE2640200F27652 /* LaunchScreen.storyboard in Resources */,
 				2B8B70BE2AE2640200F27652 /* Assets.xcassets in Resources */,
 				2B8B70B92AE263FF00F27652 /* Main.storyboard in Resources */,
+				2B8FDBDC2B175F5E00494EF6 /* Movie.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -412,10 +428,12 @@
 				2B02AB2B2AEC75DE0000DB4B /* SessionRequest.swift in Sources */,
 				2B8B70E92AE265C400F27652 /* LoginViewController.swift in Sources */,
 				2B4669872B0FCD5300DAA2C6 /* ActorCrewResponse.swift in Sources */,
+				2B8FDBDE2B175FAC00494EF6 /* MovieMainViewController.swift in Sources */,
 				2B6D196F2AF1C55B001222E5 /* MovieResponse.swift in Sources */,
 				2B6A8E472AE878D2006A18D3 /* SearchViewController.swift in Sources */,
 				2BF1E0622B15064D00247132 /* UiView-Helper.swift in Sources */,
 				2BA2ED452AF07D4000416570 /* SessionResponse.swift in Sources */,
+				2B7B23F82B166A73001FB4BC /* MultiResponse.swift in Sources */,
 				2BD34ED42AFEF58000AD688E /* DetailViewController.swift in Sources */,
 				2B8072AC2AE509B200BE5FC8 /* TMDB Client.swift in Sources */,
 				2B02AB2F2AEC7E830000DB4B /* TMDB.swift in Sources */,
@@ -424,6 +442,7 @@
 				2B02AB272AEC65F60000DB4B /* NetworkHelper.swift in Sources */,
 				2B6D196D2AF1C422001222E5 /* MovieData.swift in Sources */,
 				2B8B70BC2AE263FF00F27652 /* MyFlix.xcdatamodeld in Sources */,
+				2B7B23F42B16500A001FB4BC /* MarkFavoriteRequest.swift in Sources */,
 				2B8B70B22AE263FF00F27652 /* AppDelegate.swift in Sources */,
 				2BF1E0662B15135E00247132 /* TVListResponse.swift in Sources */,
 				2B6D196B2AF1C288001222E5 /* WatchlistViewController.swift in Sources */,
@@ -437,6 +456,7 @@
 				2B6D19692AF1C275001222E5 /* FavoritesViewController.swift in Sources */,
 				2B02AB2D2AEC7A460000DB4B /* LoginRequest.swift in Sources */,
 				2BF595BA2AF5C764003388DC /* KeychainManager.swift in Sources */,
+				2B7B23F62B1653C3001FB4BC /* TMDBResponse.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -11,15 +11,15 @@ struct MovieResponse: Codable, Equatable {
     
     let adult: Bool
     let backdropPath: String?
-    let genre_ids: [Int]
     let id: Int
+    let title: String
     let original_language: String
     let original_title: String
     let overview: String
-    let popularity: Double
     let posterPath: String?
+    let genre_ids: [Int]
+    let popularity: Double
     let release_date: String
-    let title: String
     let video: Bool
     let vote_average: Double
     let vote_count: Int

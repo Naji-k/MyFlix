@@ -9,7 +9,7 @@ import UIKit
 
 class SearchViewController: UIViewController {
 
-    var resultMovie = [MovieResponse]()
+    var resultMovie = [Result]()
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
@@ -32,6 +32,7 @@ extension SearchViewController: UISearchBarDelegate {
         currentSearchTask?.cancel()
         currentSearchTask = TMDB.search(query: searchText, completion: { movies, error in
             self.resultMovie = movies
+            print(self.resultMovie.count)
             DispatchQueue.main.async {
                 self.tableView.reloadData()
             }
@@ -64,9 +65,9 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
         
         let movie = resultMovie[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "SearchTableViewCell") as! SearchTableViewCell?
-        cell?.titleLabel.text = movie.title
-        cell?.yearLabel.text = movie.releaseYear
-        cell?.rateLabel.text = "\(String(format: "%.1f", movie.vote_average))"
+        cell?.titleLabel.text = movie.title ?? movie.name
+        cell?.yearLabel.text = movie.releaseDate
+        cell?.rateLabel.text = "\(String(format: "%.1f", movie.voteAverage ?? movie.popularity))"
         cell?.posterImageView.image = UIImage(named: "PosterPlaceholder")
         if let posterPath = movie.posterPath {
             TMDB.downloadPosterImage(posterPath: posterPath) { data, error in

@@ -9,7 +9,8 @@ import UIKit
 
 class DetailViewController: UIViewController {
     
-    var movie: MovieResponse?
+    var movie: Result?
+//    var movie: MovieResponse?
     var actorList: [Cast] = []
     
     @IBOutlet weak var coverImage: UIImageView!
@@ -17,17 +18,37 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var rate: UILabel!
     @IBOutlet weak var descLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
+    var favBtn: UIBarButtonItem!
     
     @IBOutlet weak var collectionView: UICollectionView!
     
+//    var isWatchlist: Bool {
+//        return MovieModel.watchlist.contains(movie)
+//    }
+    
+    var isFavorite: Bool {
+//        return MovieData.favList.contains(movie!)
+        return false
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+                
         guard let movie = movie else {
             print("no movie")
+            self.dismiss(animated: true)
             return
         }
+        
+        TMDB.getMovieCredits(movieID: movie.idString) { data, error in
+            guard let data = data else {
+                print(error)
+                return
+            }
+            self.actorList = data.cast
+        }
+            
+//        toggleButton(favBtn, enabled: isFavorite)
         if let image = movie.posterPath {
             TMDB.downloadPosterImage(posterPath: image) { data, error in
                 guard let data = data else { print("error image detailVC"); return }
@@ -42,17 +63,57 @@ class DetailViewController: UIViewController {
             }
         }
         
-        titleLabel.text = movie.title + " (" + movie.releaseYear + ")"
+        titleLabel.text = ((movie.title ?? movie.name) ?? "") + " (" + ((movie.releaseDate ?? movie.firstAirDate) ?? "") + ")"
         descLabel.text = movie.overview
-        rate.text = "\(String(format: "%.1f", movie.vote_average))"
+        rate.text = ""
         
+        favBtn = UIBarButtonItem(image: UIImage(systemName: "heart.fill") , style: .done, target: self, action: #selector(addToFav))
+        if (isFavorite) {
+            favBtn.tintColor = UIColor.red
+        } else {
+            favBtn.tintColor = .gray
+        }
+        navigationItem.title = movie.mediaType
+        navigationItem.rightBarButtonItem = favBtn
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
         self.collectionView.reloadData()
-        
+    }
+    
+    @objc func addToFav (sender: UIBarButtonItem) {
+        TMDB.markFavorite(mediaType: "movie", mediaID: movie!.id, favorite: !isFavorite, completion: handleFavoriteListResponse(success:error:))
+    }
+    
+    func handleFavoriteListResponse(success: Bool, error: Error?) {
+//        if success {
+//            if isFavorite {
+//                if let index = MovieData.favList.firstIndex(where: { $0 == movie  }) {
+//                    print("index= \(index)")
+//                    MovieData.favList.remove(at: index)
+//                }
+//            } else {
+//                MovieData.favList.append(movie!)
+//            }
+//            toggleButton(favBtn, enabled: isFavorite)
+//        }
+//        else {
+//            print(error)
+//        }
+    }
+    
+    //to toggle the button(if it is in fav list or not) fill color
+    func toggleButton(_ button: UIBarButtonItem, enabled: Bool) {
+        if enabled {
+            button.tintColor = .red
+        } else {
+            button.tintColor = .gray
+        }
     }
     
 }
