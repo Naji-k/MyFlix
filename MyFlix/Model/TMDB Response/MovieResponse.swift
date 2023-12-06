@@ -48,7 +48,7 @@ struct MovieResponse: Codable, Equatable {
         case video = "video"
         case vote_average = "vote_average"
         case vote_count = "vote_count"
-
+        
     }
-
+    
 }

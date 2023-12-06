@@ -8,7 +8,7 @@
 import UIKit
 
 class WatchlistViewController: UIViewController {
-
+    
     var mediaType: Category = .movie
     
     @IBOutlet weak var tableView: UITableView!
@@ -25,7 +25,7 @@ class WatchlistViewController: UIViewController {
         
         let appearance = UINavigationBarAppearance()
         appearance.configureWithTransparentBackground()
-
+        
         UINavigationBar.appearance().standardAppearance = appearance
     }
     
@@ -43,7 +43,7 @@ class WatchlistViewController: UIViewController {
             print(error?.localizedDescription)
         }
     }
-
+    
 }
 
 extension WatchlistViewController: UITableViewDataSource, UITableViewDelegate {
@@ -59,7 +59,7 @@ extension WatchlistViewController: UITableViewDataSource, UITableViewDelegate {
         }
         
     }
-
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let item: MultiTypeMediaResponse?
         switch(mediaType) {
@@ -71,7 +71,7 @@ extension WatchlistViewController: UITableViewDataSource, UITableViewDelegate {
             item = MovieData.tvWatchList[indexPath.row]
         }
         let cell = tableView.dequeueReusableCell(withIdentifier: "MovieTableViewCell")!
-
+        
         let placeHolder = UIImage(named: "PosterPlaceholder")
         cell.textLabel?.text = item?.title ?? item?.name
         cell.imageView?.image = placeHolder

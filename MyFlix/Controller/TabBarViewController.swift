@@ -8,16 +8,20 @@
 import UIKit
 
 class TabBarViewController: UITabBarController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-
         if (!getKeychain())
         {
             UserDefaults.standard.set(false, forKey: "status")
             Switcher.updateRootVC()
         }
+        fetchFavLists()
+        loadVCToTabBar()
+    }
+    
+    func fetchFavLists() {
         TMDB.getFavoriteList(mediaType: "movies") { success, error in
             if let error = error {
                 print("cant load movie favorite list ",error.localizedDescription)
@@ -29,7 +33,9 @@ class TabBarViewController: UITabBarController {
             }
         }
         
-        
+    }
+    
+    func loadVCToTabBar() {
         let movieVC = self.storyboard?.instantiateViewController(withIdentifier: "MovieMainViewController") as! MovieMainViewController
         movieVC.viewControllerType = .movie
         movieVC.tabBarItem = UITabBarItem(title: "Movie", image: UIImage(named: "List"), tag: 0)
@@ -43,9 +49,7 @@ class TabBarViewController: UITabBarController {
         
         viewControllers = [movieVC, tvVC, favVC]
         
-        
     }
-    
     func getKeychain() -> Bool
     {
         let security = SecureStore.init()
@@ -63,14 +67,5 @@ class TabBarViewController: UITabBarController {
         }
         return false
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+    
 }

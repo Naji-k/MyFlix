@@ -21,7 +21,7 @@ struct TVResponse: Codable {
     let firstAirDate, name: String
     let voteAverage: Double
     let voteCount: Int
-
+    
     //to return Only release year
     var releaseYear: String {
         return String(firstAirDate.prefix(4))

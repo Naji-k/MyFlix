@@ -9,9 +9,9 @@ import Foundation
 
 class TMDBClient {
     
-//    Create a new request token
-//    Get the user to authorize the request token
-//    Create a new session id with the authorized request token
+    //    Create a new request token
+    //    Get the user to authorize the request token
+    //    Create a new session id with the authorized request token
     
     static let apiKey = "bbaf9f6029e8bacc8d07c72fca003c32"
     
@@ -21,5 +21,5 @@ class TMDBClient {
         static var sessionId = ""
     }
     static var profileInfo: ProfileResponse?
- 
+    
 }

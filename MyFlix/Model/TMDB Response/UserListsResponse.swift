@@ -11,7 +11,7 @@ struct UserListsResponse: Codable {
     let page: Int
     let results: [ListResponse]
     let totalPages, totalResults: Int
-
+    
     enum CodingKeys: String, CodingKey {
         case page, results
         case totalPages = "total_pages"
@@ -27,7 +27,7 @@ struct ListResponse: Codable {
     let itemCount: Int
     let iso639_1, listType, name: String
     let posterPath: JSONNull?
-
+    
     enum CodingKeys: String, CodingKey {
         case description
         case favoriteCount = "favorite_count"

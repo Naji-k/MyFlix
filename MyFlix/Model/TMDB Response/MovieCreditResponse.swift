@@ -24,7 +24,7 @@ struct Cast: Codable {
     let creditID: String
     let order: Int?
     let department, job: String?
-
+    
     var idString: String {
         return String(id)
     }

@@ -26,20 +26,20 @@ struct ActorDetailResponse: Codable {
     
     
     enum CodingKeys: String, CodingKey {
-       case adult
-       case alsoKnowsAs = "also_known_as"
-       case biography
-       case birthday
-       case deathday
-       case gender
-       case homepage
-       case id
-       case imdb_id
-       case knownForDepartment = "known_for_department"
-       case name
-       case placeOfBirth = "place_of_birth"
-       case popularity
-       case profilePath = "profile_path"
+        case adult
+        case alsoKnowsAs = "also_known_as"
+        case biography
+        case birthday
+        case deathday
+        case gender
+        case homepage
+        case id
+        case imdb_id
+        case knownForDepartment = "known_for_department"
+        case name
+        case placeOfBirth = "place_of_birth"
+        case popularity
+        case profilePath = "profile_path"
     }
     
     func calAge(birthday: String) -> String {

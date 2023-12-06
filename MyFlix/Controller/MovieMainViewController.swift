@@ -12,7 +12,7 @@ class MovieMainViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     var viewControllerType: Category = .tv
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         let appearance = UINavigationBarAppearance()
@@ -20,7 +20,7 @@ class MovieMainViewController: UIViewController {
         navigationController?.navigationBar.standardAppearance = appearance
         
         fetchMediaData()
-
+        
     }
     
     
@@ -31,15 +31,15 @@ class MovieMainViewController: UIViewController {
         var sorts = [TMDB.MovieSortedBy]()
         switch viewControllerType {
         case .movie:
-             sorts = [TMDB.MovieSortedBy.nowPlaying, .topRated, .popular]
-             dataTargets = [
+            sorts = [TMDB.MovieSortedBy.nowPlaying, .topRated, .popular]
+            dataTargets = [
                 { MovieData.movieNowPlaying = $0.results },
                 { MovieData.movieTopRated = $0.results },
                 { MovieData.movieMostPopular = $0.results }
             ]
         case .tv:
-             sorts = [TMDB.MovieSortedBy.onTheAir, .topRated, .popular]
-             dataTargets = [
+            sorts = [TMDB.MovieSortedBy.onTheAir, .topRated, .popular]
+            dataTargets = [
                 { MovieData.TVOnTheAir = $0.results },
                 { MovieData.TVTopRated = $0.results },
                 { MovieData.TVPopular = $0.results }
@@ -92,7 +92,7 @@ extension MovieMainViewController: UITableViewDelegate, UITableViewDataSource, M
             print(cell.movies?.count)
         }
     }
-   
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "MovieTableViewCell", for: indexPath) as! MovieTableViewCell

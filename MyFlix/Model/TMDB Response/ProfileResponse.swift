@@ -16,7 +16,7 @@ struct ProfileResponse: Codable {
     let iso639_1, iso3166_1, name: String
     let includeAdult: Bool
     let username: String
-
+    
     enum CodingKeys: String, CodingKey {
         case avatar, id
         case iso639_1 = "iso_639_1"

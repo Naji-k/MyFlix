@@ -22,7 +22,7 @@ class MovieTableViewCell: UITableViewCell, UICollectionViewDelegate, UICollectio
     @IBOutlet weak var collectionView: UICollectionView!
     
     var movies: [MultiTypeMediaResponse]?
-
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -30,10 +30,10 @@ class MovieTableViewCell: UITableViewCell, UICollectionViewDelegate, UICollectio
         collectionView.dataSource = self
     }
     
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        
         // Configure the view for the selected state
     }
     //MARK: -CollectionView
@@ -62,8 +62,8 @@ class MovieTableViewCell: UITableViewCell, UICollectionViewDelegate, UICollectio
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if let item = movies?[indexPath.row] {
             delegate?.didSelectItem(item: item)
-
+            
         }
     }
-
+    
 }

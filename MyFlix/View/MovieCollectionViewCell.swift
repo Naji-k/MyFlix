@@ -13,7 +13,7 @@ class MovieCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var movieLabel: UILabel!
     var cornerRadius: CGFloat = 8.0
-
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
