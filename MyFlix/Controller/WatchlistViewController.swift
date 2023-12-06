@@ -9,11 +9,19 @@ import UIKit
 
 class WatchlistViewController: UIViewController {
 
-    @IBOutlet weak var tableView: UITableView!
+    var mediaType: Category = .movie
     
+    @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        TMDB.getWatchList(completion: handleGetWatchList(success:error:))
+        switch (mediaType) {
+        case.movie:
+            TMDB.getWatchList(mediaType: "movies", completion: handleGetWatchList(success:error:))
+        case .tv:
+            TMDB.getWatchList(mediaType: "tv", completion: handleGetWatchList(success:error:))
+        case .person:
+            return
+        }
         
         let appearance = UINavigationBarAppearance()
         appearance.configureWithTransparentBackground()
@@ -41,17 +49,33 @@ class WatchlistViewController: UIViewController {
 extension WatchlistViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return MovieData.watchList.count
-
+        switch(mediaType) {
+        case .movie:
+            return MovieData.movieWatchList.count
+        case .tv:
+            return MovieData.tvWatchList.count
+        case .person:
+            return 0
+        }
+        
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let item: MultiTypeMediaResponse?
+        switch(mediaType) {
+        case .movie:
+            item = MovieData.movieWatchList[indexPath.row]
+        case .tv:
+            item = MovieData.tvWatchList[indexPath.row]
+        case .person:
+            item = MovieData.tvWatchList[indexPath.row]
+        }
         let cell = tableView.dequeueReusableCell(withIdentifier: "MovieTableViewCell")!
-        let movie = MovieData.watchList[indexPath.row]
+
         let placeHolder = UIImage(named: "PosterPlaceholder")
-        cell.textLabel?.text = movie.original_title
+        cell.textLabel?.text = item?.title ?? item?.name
         cell.imageView?.image = placeHolder
-        if let posterPath = movie.posterPath {
+        if let posterPath = item?.posterPath {
             TMDB.downloadPosterImage(posterPath: posterPath) { data, error in
                 guard let data = data else { return }
                 cell.imageView?.image = UIImage(data: data)
@@ -59,6 +83,23 @@ extension WatchlistViewController: UITableViewDataSource, UITableViewDelegate {
             }
         }
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        var item: MultiTypeMediaResponse?
+        let vc = storyboard?.instantiateViewController(withIdentifier: "DetailViewController") as! DetailViewController
+        
+        switch (mediaType) {
+        case .movie:
+            item = MovieData.movieWatchList[indexPath.row]
+        case .tv:
+            item = MovieData.tvWatchList[indexPath.row]
+        default:
+            return
+        }
+        vc.mediaType = mediaType
+        vc.movie = item
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     

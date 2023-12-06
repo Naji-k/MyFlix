@@ -50,47 +50,28 @@ extension UIImageView {
     }
     
     
-//    func downloadImage(from url: String){
-//        let urlRequest = URLRequest(url: URL(string: url)!)
-//        let task =  URLSession.shared.dataTask(with: urlRequest) { (data, response, error) in
-//            if error != nil {
-//                print(error as Any)
-//                return
-//            }
-//            DispatchQueue.main.async {
-//                self.image = UIImage(data: data!)
-//            }
-//        }
-//        task.resume()
-//    }
+    func downloadImage(urlString: String) {
+        downloadImage(url: URL(string: urlString)!)
+    }
     
-    
-//
-//
-//    func downloadImage(urlString: String, completion: @escaping (UIImage?) -> ()) {
-//        downloadImage(url: URL(string: urlString)!) { (image) in
-//            completion(image)
-//        }
-//    }
-//
-//    func downloadImage(url: URL, completion: @escaping (UIImage?) -> ()) {
+    func downloadImage(url: URL) {
 //        print("Download Started")
-//        getDataFromUrl(url: url) { data, response, error in
-//            guard let data = data, error == nil else { return }
+        getDataFromUrl(url: url) { data, response, error in
+            guard let data = data, error == nil else { return }
 //            print(response?.suggestedFilename ?? url.lastPathComponent)
 //            print("Download Finished")
-//            DispatchQueue.main.async() {
-//                self.image = UIImage(data: data)
-//                completion(self.image)
-//            }
-//        }
-//    }
-//
-//    func getDataFromUrl(url: URL, completion: @escaping (Data?, URLResponse?, Error?) -> ()) {
-//        URLSession.shared.dataTask(with: url) { data, response, error in
-//            completion(data, response, error)
-//        }.resume()
-//    }
+            DispatchQueue.main.async() {
+                self.image = UIImage(data: data)
+            }
+        }
+    }
+    
+    func getDataFromUrl(url: URL, completion: @escaping (Data?, URLResponse?, Error?) -> ()) {
+        URLSession.shared.dataTask(with: url) { data, response, error in
+            completion(data, response, error)
+        }.resume()
+    }
+    
 }
      
      

@@ -9,9 +9,9 @@ import UIKit
 
 class DetailViewController: UIViewController {
     
-    var movie: Result?
-//    var movie: MovieResponse?
+    var movie: MultiTypeMediaResponse?
     var actorList: [Cast] = []
+    var mediaType: Category = .movie
     
     @IBOutlet weak var coverImage: UIImageView!
     @IBOutlet weak var imageView: UIImageView!
@@ -22,33 +22,34 @@ class DetailViewController: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
     
-//    var isWatchlist: Bool {
-//        return MovieModel.watchlist.contains(movie)
-//    }
-    
     var isFavorite: Bool {
-//        return MovieData.favList.contains(movie!)
-        return false
+        switch(mediaType) {
+        case.movie:
+            return MovieData.favList.contains{$0.id == movie?.id}
+        case.tv :
+            return MovieData.favTVList.contains{$0.id == movie?.id}
+        case .person:
+            return false
+        }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-                
+        self.navigationItem.backButtonTitle = ""
         guard let movie = movie else {
             print("no movie")
             self.dismiss(animated: true)
             return
         }
         
-        TMDB.getMovieCredits(movieID: movie.idString) { data, error in
+        TMDB.getMediaCredits(mediaType: mediaType.stringValue, mediaID: movie.idString) { data, error in
             guard let data = data else {
                 print(error)
                 return
             }
             self.actorList = data.cast
         }
-            
-//        toggleButton(favBtn, enabled: isFavorite)
+
         if let image = movie.posterPath {
             TMDB.downloadPosterImage(posterPath: image) { data, error in
                 guard let data = data else { print("error image detailVC"); return }
@@ -65,7 +66,7 @@ class DetailViewController: UIViewController {
         
         titleLabel.text = ((movie.title ?? movie.name) ?? "") + " (" + ((movie.releaseDate ?? movie.firstAirDate) ?? "") + ")"
         descLabel.text = movie.overview
-        rate.text = ""
+        rate.text = "\(String(format: "%.1f", movie.voteAverage ?? movie.popularity))"
         
         favBtn = UIBarButtonItem(image: UIImage(systemName: "heart.fill") , style: .done, target: self, action: #selector(addToFav))
         if (isFavorite) {
@@ -73,8 +74,8 @@ class DetailViewController: UIViewController {
         } else {
             favBtn.tintColor = .gray
         }
-        navigationItem.title = movie.mediaType
-        navigationItem.rightBarButtonItem = favBtn
+        self.navigationItem.title = mediaType.stringValue.uppercased()
+        self.navigationItem.rightBarButtonItem = favBtn
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -87,24 +88,25 @@ class DetailViewController: UIViewController {
     }
     
     @objc func addToFav (sender: UIBarButtonItem) {
-        TMDB.markFavorite(mediaType: "movie", mediaID: movie!.id, favorite: !isFavorite, completion: handleFavoriteListResponse(success:error:))
+        print("favPressed", mediaType.stringValue, movie?.idString)
+        TMDB.markFavorite(mediaType: mediaType.stringValue, mediaID: movie!.id, favorite: !isFavorite, completion: handleFavoriteListResponse(success:error:))
     }
     
     func handleFavoriteListResponse(success: Bool, error: Error?) {
-//        if success {
-//            if isFavorite {
-//                if let index = MovieData.favList.firstIndex(where: { $0 == movie  }) {
-//                    print("index= \(index)")
-//                    MovieData.favList.remove(at: index)
-//                }
-//            } else {
-//                MovieData.favList.append(movie!)
-//            }
-//            toggleButton(favBtn, enabled: isFavorite)
-//        }
-//        else {
-//            print(error)
-//        }
+        if success {
+            if isFavorite {
+                if let index = MovieData.favList.firstIndex(where: { $0.id == movie?.id  }) {
+                    print("index= \(index)")
+                    MovieData.favList.remove(at: index)
+                }
+            } else {
+                MovieData.favList.append(movie!)
+            }
+            toggleButton(favBtn, enabled: isFavorite)
+        }
+        else {
+            print(error)
+        }
     }
     
     //to toggle the button(if it is in fav list or not) fill color

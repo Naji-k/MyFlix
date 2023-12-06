@@ -23,10 +23,11 @@ struct MovieListResponse: Codable {
     
 }
 
-struct SearchMulti: Codable {
+//for MultiTypeMedia (used for generics VC) it will receive the results and combine between Movie-TV-Person
+struct MultiTypeMediaListResponse: Codable {
     
     let page: Int
-    let results: [Result]
+    let results: [MultiTypeMediaResponse]
     let totalPages: Int
     let totalResults: Int
     

@@ -20,6 +20,6 @@ class TMDBClient {
         static var requestToken = ""
         static var sessionId = ""
     }
-    
+    static var profileInfo: ProfileResponse?
  
 }

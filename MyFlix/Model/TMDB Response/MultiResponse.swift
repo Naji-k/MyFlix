@@ -7,90 +7,10 @@
 
 import Foundation
 
-struct MultiResponse: Codable {
-    let adult: Bool? //Both
-    let backdropPath: String?   //both
-    let id: Int? //both
-    
-    let title: String?  //movie
-    let name: String?   //tv
-    let original_language: String   //both
-    
-    let original_title: String? //movie
-    let original_name: String? //tv
-    
-    let overview: String?    //both
-    let posterPath: String? //both
-    let genre_ids: [Int]?    //both
-    let popularity: Double?  //both
-    
-    let releaseDate: String?//movie
-    let first_air_date: String?//tv
-    
-    let video: Bool? //movie
-    let vote_average: Double?    //both
-    let vote_count: Int?     //both
-    let mediaType:String? //new
-    
-    let originCountry: [OriginCountry]?//onlyTV
-    let knownFor: [KnownFor]?
-    let gender: Int?
-    let knownForDepartment :String?
-    let profilePath :String?
-
-    
-    //to return Only release year
-    var releaseYear: String {
-        if let releaseDate = releaseDate {
-            return (String(releaseDate.prefix(4)))
-        } else if let releaseDate = first_air_date{
-            return (String(releaseDate.prefix(4)))
-        }
-        return ""
-    }
-    
-    var idString: String {
-        return String(id!)
-    }
-    
-    enum CodingKeys: String, CodingKey {
-        case adult = "adult"
-        case backdropPath = "backdrop_path"
-        case id = "id"
-        case title = "title"
-        case name
-        case original_language = "original_language"
-        case original_title = "original_title"
-        case original_name
-        
-        case overview = "overview"
-        case posterPath = "poster_path"
-        case genre_ids = "genre_ids"
-        case popularity = "popularity"
-        
-        case releaseDate  = "release_date"
-        case first_air_date
-
-        case mediaType = "media_type"
-        case video = "video"
-        case vote_average = "vote_average"
-        case vote_count = "vote_count"
-        case originCountry = "origin_country"
-        case knownFor = "known_for"
-        
-        case knownForDepartment = "known_for_department"
-        case profilePath = "profile_path"
-        case gender
-    }
-    
-}
-
-
 // MARK: - Multi
 
-
-// MARK: - Result
-struct Result: Codable {
+struct MultiTypeMediaResponse: Codable {
+    
     let adult: Bool
     let backdropPath: String?
     let id: Int
@@ -113,6 +33,16 @@ struct Result: Codable {
     var idString: String {
         return String(id)
     }
+    
+    var releaseYear: String {
+        if let releaseDate = releaseDate {
+            return (String(releaseDate.prefix(4)))
+        } else if let releaseDate = firstAirDate{
+            return (String(releaseDate.prefix(4)))
+        }
+        return ""
+    }
+
     
     enum CodingKeys: String, CodingKey {
         case adult
@@ -171,11 +101,6 @@ struct KnownFor: Codable {
     }
 }
 
-//enum MediaType: String, Codable {
-//    case movie = "movie"
-//    case person = "person"
-//    case tv = "tv"
-//}
 
 // MARK: - Encode/decode helpers
 

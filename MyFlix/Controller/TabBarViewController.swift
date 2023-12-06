@@ -18,8 +18,32 @@ class TabBarViewController: UITabBarController {
             UserDefaults.standard.set(false, forKey: "status")
             Switcher.updateRootVC()
         }
+        TMDB.getFavoriteList(mediaType: "movies") { success, error in
+            if let error = error {
+                print("cant load movie favorite list ",error.localizedDescription)
+            }
+        }
+        TMDB.getFavoriteList(mediaType: "tv") { success, error in
+            if let error = error {
+                print("cant load tv favorite list ",error.localizedDescription)
+            }
+        }
         
-        // Do any additional setup after loading the view.
+        
+        let movieVC = self.storyboard?.instantiateViewController(withIdentifier: "MovieMainViewController") as! MovieMainViewController
+        movieVC.viewControllerType = .movie
+        movieVC.tabBarItem = UITabBarItem(title: "Movie", image: UIImage(named: "List"), tag: 0)
+        
+        let tvVC = self.storyboard?.instantiateViewController(withIdentifier: "MovieMainViewController") as! MovieMainViewController
+        tvVC.viewControllerType = .tv
+        tvVC.tabBarItem = UITabBarItem(title: "TV", image: UIImage(named: "Genre"), tag: 1)
+        
+        let favVC = self.storyboard?.instantiateViewController(withIdentifier: "MoreViewController") as! MoreViewController
+        favVC.tabBarItem = UITabBarItem(title: "More", image: UIImage(named: "List"), tag: 2)
+        
+        viewControllers = [movieVC, tvVC, favVC]
+        
+        
     }
     
     func getKeychain() -> Bool
