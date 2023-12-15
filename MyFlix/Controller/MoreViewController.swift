@@ -27,9 +27,30 @@ class MoreViewController: UIViewController {
         
     }
     
+    func removeKeychain(sessionId: String) -> Bool {
+        let security = SecureStore.init()
+    
+        do {
+            try security.removeEntry(forKey: sessionId)
+            return true
+        } catch {
+            print("error > ", error.localizedDescription)
+            return false
+        }
+    }
+
     
     @IBAction func logoutBtnPressed(_ sender: Any) {
         print("LOG OUT")
+        TMDB.deleteSessionId {
+            if (self.removeKeychain(sessionId: "sessionID")) {
+                UserDefaults.standard.set(false, forKey: "status")
+                Switcher.updateRootVC()
+
+            } else {
+                print("Error removing sessionID")
+            }
+        }
     }
     
     func getAccountInfoCompletionHandler(success: Bool, error: Error?) {

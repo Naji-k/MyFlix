@@ -36,13 +36,14 @@ class TabBarViewController: UITabBarController {
     }
     
     func loadVCToTabBar() {
+        UITabBar.appearance().tintColor = UIColor(named: "TintGreen")
         let movieVC = self.storyboard?.instantiateViewController(withIdentifier: "MovieMainViewController") as! MovieMainViewController
         movieVC.viewControllerType = .movie
-        movieVC.tabBarItem = UITabBarItem(title: "Movie", image: UIImage(named: "List"), tag: 0)
+        movieVC.tabBarItem = UITabBarItem(title: "Movie", image: UIImage(named: "Movie"), tag: 0)
         
         let tvVC = self.storyboard?.instantiateViewController(withIdentifier: "MovieMainViewController") as! MovieMainViewController
         tvVC.viewControllerType = .tv
-        tvVC.tabBarItem = UITabBarItem(title: "TV", image: UIImage(named: "Genre"), tag: 1)
+        tvVC.tabBarItem = UITabBarItem(title: "TV", image: UIImage(named: "TV"), tag: 1)
         
         let favVC = self.storyboard?.instantiateViewController(withIdentifier: "MoreViewController") as! MoreViewController
         favVC.tabBarItem = UITabBarItem(title: "More", image: UIImage(named: "List"), tag: 2)

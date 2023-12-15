@@ -5,11 +5,17 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Image references" minToolsVersion="12.0"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="SIGNBOAR.ttf">
+            <string>Signboard</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Movie Main View Controller-->
         <scene sceneID="ZHl-eQ-p6X">
@@ -175,23 +181,23 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="b73-kk-ZtC">
-                                <rect key="frame" x="80" y="119" width="233" height="138"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MainMyFlix" translatesAutoresizingMaskIntoConstraints="NO" id="b73-kk-ZtC">
+                                <rect key="frame" x="80" y="119" width="233" height="150"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="138" id="ouL-EY-iR2"/>
+                                    <constraint firstAttribute="height" constant="150" id="ouL-EY-iR2"/>
                                 </constraints>
                             </imageView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="EGr-tA-IQc">
-                                <rect key="frame" x="25" y="355.66666666666663" width="343" height="260.66666666666663"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="EGr-tA-IQc">
+                                <rect key="frame" x="25" y="349.66666666666663" width="343" height="272.66666666666663"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Login with User name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rEa-yY-DhQ">
-                                        <rect key="frame" x="0.0" y="0.0" width="343" height="20.333333333333332"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="14.333333333333334"/>
+                                        <fontDescription key="fontDescription" name="Signboard" family="Signboard" pointSize="12"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="qfo-1z-dS8" customClass="LoginTextField" customModule="MyFlix" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="32.333333333333314" width="343" height="32"/>
+                                        <rect key="frame" x="0.0" y="30.333333333333314" width="343" height="32"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="32" id="2O9-B8-kTv"/>
                                         </constraints>
@@ -199,36 +205,46 @@
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="84C-WR-QxI" customClass="LoginTextField" customModule="MyFlix" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="76.333333333333314" width="343" height="32"/>
+                                        <rect key="frame" x="0.0" y="78.333333333333314" width="343" height="32"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="32" id="v0R-A2-aXC"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES" secureTextEntry="YES" textContentType="password"/>
                                     </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t54-Vn-yk5">
-                                        <rect key="frame" x="0.0" y="120.33333333333331" width="343" height="32"/>
+                                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t54-Vn-yk5">
+                                        <rect key="frame" x="0.0" y="126.33333333333331" width="343" height="32"/>
+                                        <color key="backgroundColor" name="TintGreen"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="Login"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Login">
+                                            <fontDescription key="titleFontDescription" name="Signboard" family="Signboard" pointSize="12"/>
+                                        </buttonConfiguration>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="5"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="loginTappedBtn:" destination="Gdl-M0-fXc" eventType="touchUpInside" id="xNG-2Q-ebu"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="OR" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wC5-Ke-1XQ">
-                                        <rect key="frame" x="0.0" y="164.33333333333331" width="343" height="20.333333333333343"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <rect key="frame" x="0.0" y="174.33333333333331" width="343" height="14.333333333333343"/>
+                                        <fontDescription key="fontDescription" name="Signboard" family="Signboard" pointSize="12"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UD6-lW-TNK" customClass="LoginButton" customModule="MyFlix" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="196.66666666666669" width="343" height="32"/>
+                                        <rect key="frame" x="0.0" y="204.66666666666669" width="343" height="32"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="32" id="rCA-db-Wji"/>
                                         </constraints>
+                                        <fontDescription key="fontDescription" name="Signboard" family="Signboard" pointSize="12"/>
                                         <state key="normal" title="Login via Website"/>
                                     </button>
                                     <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="DiU-Ws-j6p">
-                                        <rect key="frame" x="0.0" y="240.66666666666669" width="343" height="20"/>
+                                        <rect key="frame" x="0.0" y="252.66666666666669" width="343" height="20"/>
                                     </activityIndicatorView>
                                 </subviews>
                                 <constraints>
@@ -237,7 +253,8 @@
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="n1H-Xp-aL0"/>
-                        <color key="backgroundColor" systemColor="systemGray2Color"/>
+                        <color key="backgroundColor" name="MainNavy"/>
+                        <color key="tintColor" name="TintGreen"/>
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="n1H-Xp-aL0" firstAttribute="trailing" secondItem="EGr-tA-IQc" secondAttribute="trailing" constant="25" id="BCb-VJ-ctg"/>
@@ -267,7 +284,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-1576" y="-648"/>
+            <point key="canvasLocation" x="-1576.3358778625955" y="-648.59154929577471"/>
         </scene>
         <!--DetailViewController-->
         <scene sceneID="c46-05-Igu">
@@ -473,14 +490,14 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" id="g46-vi-rlf">
-                                <rect key="frame" x="-4" y="-2" width="396" height="962"/>
+                                <rect key="frame" x="-4" y="-2" width="394" height="961"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HiJ-Ir-yf8" userLabel="profileContainerView">
-                                        <rect key="frame" x="0.0" y="59" width="396" height="450"/>
+                                        <rect key="frame" x="0.0" y="59" width="394" height="450"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="XtG-tb-BHy">
-                                                <rect key="frame" x="0.0" y="0.0" width="396" height="450"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="394" height="450"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="450" id="vvf-b8-e6d"/>
@@ -502,6 +519,7 @@
                                             <constraint firstAttribute="width" constant="15" id="ZEq-5t-PqG"/>
                                             <constraint firstAttribute="height" constant="15" id="sLY-6h-AqZ"/>
                                         </constraints>
+                                        <color key="tintColor" name="TintGreen"/>
                                         <buttonConfiguration key="configuration" style="plain">
                                             <imageReference key="image" image="xmark" catalog="system" symbolScale="medium"/>
                                         </buttonConfiguration>
@@ -510,7 +528,7 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZBR-3h-O6R">
-                                        <rect key="frame" x="16" y="529" width="364" height="40"/>
+                                        <rect key="frame" x="16" y="529" width="362" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="Km0-xy-t9K"/>
                                         </constraints>
@@ -539,7 +557,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FBy-Qg-Fh3">
-                                        <rect key="frame" x="16" y="637" width="364" height="184"/>
+                                        <rect key="frame" x="16" y="637" width="362" height="184"/>
                                         <string key="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
 
 </string>
@@ -843,13 +861,22 @@
                                     <constraint firstAttribute="width" constant="110" id="xuw-HI-Vu5"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VMH-tm-0yF">
+                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VMH-tm-0yF">
                                 <rect key="frame" x="16" y="783" width="361" height="35"/>
+                                <color key="backgroundColor" name="TintGreen"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="G6B-cp-0tq"/>
                                 </constraints>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Log Out">
+                                    <fontDescription key="titleFontDescription" name="Signboard" family="Signboard" pointSize="15"/>
+                                </buttonConfiguration>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="logoutBtnPressed:" destination="ljg-k7-oUL" eventType="touchUpInside" id="8B1-Ro-GCN"/>
                                 </connections>
@@ -865,7 +892,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="49" id="Mxp-RJ-dkf"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="Signboard" family="Signboard" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -906,19 +933,22 @@
         </scene>
     </scenes>
     <resources>
+        <image name="MainMyFlix" width="128" height="128"/>
         <image name="defaultProfile" width="180" height="180"/>
-        <image name="logo" width="440" height="521.5"/>
         <image name="profileTest" width="500" height="750"/>
         <image name="star.fill" catalog="system" width="128" height="116"/>
         <image name="xmark" catalog="system" width="128" height="113"/>
+        <namedColor name="MainNavy">
+            <color red="0.0078431372549019607" green="0.090196078431372548" blue="0.29803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="TintGreen">
+            <color red="0.18823529411764706" green="0.80000000000000004" blue="0.45490196078431372" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemFillColor">
             <color red="0.47058823529411764" green="0.47058823529411764" blue="0.50196078431372548" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemGray2Color">
-            <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemYellowColor">
             <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

@@ -93,19 +93,35 @@ class DetailViewController: UIViewController {
     }
     
     func handleFavoriteListResponse(success: Bool, error: Error?) {
-        if success {
-            if isFavorite {
-                if let index = MovieData.favList.firstIndex(where: { $0.id == movie?.id  }) {
-                    print("index= \(index)")
-                    MovieData.favList.remove(at: index)
-                }
-            } else {
-                MovieData.favList.append(movie!)
-            }
-            toggleButton(favBtn, enabled: isFavorite)
+        guard success else {
+            print(error?.localizedDescription ?? "An error occurred.")
+            return
         }
-        else {
-            print(error)
+        
+        guard let movie = movie else {
+            print("No movie or mediaType information available.")
+            return
+        }
+        switch self.mediaType {
+        case .movie:
+            updateFavoriteList(&MovieData.favList, with: movie, isFavorite: isFavorite)
+        case .tv:
+            updateFavoriteList(&MovieData.favTVList, with: movie, isFavorite: isFavorite)
+        case .person:
+            break
+        }
+        toggleButton(favBtn, enabled: isFavorite)
+    }
+
+    private func updateFavoriteList(_ list: inout [MultiTypeMediaResponse], with movie: MultiTypeMediaResponse, isFavorite: Bool) {
+        if isFavorite {
+            if let index = list.firstIndex(where: { $0.id == movie.id }) {
+                list.remove(at: index)
+            }
+        } else {
+            if !list.contains(where: { $0.id == movie.id }) {
+                list.append(movie)
+            }
         }
     }
     

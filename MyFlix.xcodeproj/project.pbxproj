@@ -13,6 +13,8 @@
 		2B02AB2D2AEC7A460000DB4B /* LoginRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B02AB2C2AEC7A460000DB4B /* LoginRequest.swift */; };
 		2B02AB2F2AEC7E830000DB4B /* TMDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B02AB2E2AEC7E830000DB4B /* TMDB.swift */; };
 		2B3523D12B14AFBD0029733D /* ActorCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B3523D02B14AFBD0029733D /* ActorCollectionViewCell.swift */; };
+		2B3704C22B2BB6DF00101808 /* LogoutRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B3704C12B2BB6DF00101808 /* LogoutRequest.swift */; };
+		2B3704C42B2BBC4500101808 /* SIGNBOAR.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2B3704C32B2BBBCD00101808 /* SIGNBOAR.ttf */; };
 		2B4669872B0FCD5300DAA2C6 /* MovieCreditResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B4669862B0FCD5300DAA2C6 /* MovieCreditResponse.swift */; };
 		2B6A8E452AE8775E006A18D3 /* Switcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B6A8E442AE8775E006A18D3 /* Switcher.swift */; };
 		2B6A8E472AE878D2006A18D3 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B6A8E462AE878D2006A18D3 /* SearchViewController.swift */; };
@@ -78,6 +80,8 @@
 		2B02AB2C2AEC7A460000DB4B /* LoginRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRequest.swift; sourceTree = "<group>"; };
 		2B02AB2E2AEC7E830000DB4B /* TMDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDB.swift; sourceTree = "<group>"; };
 		2B3523D02B14AFBD0029733D /* ActorCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActorCollectionViewCell.swift; sourceTree = "<group>"; };
+		2B3704C12B2BB6DF00101808 /* LogoutRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutRequest.swift; sourceTree = "<group>"; };
+		2B3704C32B2BBBCD00101808 /* SIGNBOAR.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SIGNBOAR.ttf; sourceTree = "<group>"; };
 		2B4669862B0FCD5300DAA2C6 /* MovieCreditResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCreditResponse.swift; sourceTree = "<group>"; };
 		2B6A8E442AE8775E006A18D3 /* Switcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Switcher.swift; sourceTree = "<group>"; };
 		2B6A8E462AE878D2006A18D3 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
@@ -182,6 +186,7 @@
 				2B02AB2A2AEC75DE0000DB4B /* SessionRequest.swift */,
 				2B02AB2C2AEC7A460000DB4B /* LoginRequest.swift */,
 				2B7B23F32B16500A001FB4BC /* MarkFavoriteRequest.swift */,
+				2B3704C12B2BB6DF00101808 /* LogoutRequest.swift */,
 			);
 			path = "TMDB Requests";
 			sourceTree = "<group>";
@@ -301,6 +306,7 @@
 			isa = PBXGroup;
 			children = (
 				2B8B70BD2AE2640200F27652 /* Assets.xcassets */,
+				2B3704C32B2BBBCD00101808 /* SIGNBOAR.ttf */,
 				2B8B70BF2AE2640200F27652 /* LaunchScreen.storyboard */,
 				2B6BF01B2B1FAE4800DAAD23 /* Main.storyboard */,
 			);
@@ -412,6 +418,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2B8B70C12AE2640200F27652 /* LaunchScreen.storyboard in Resources */,
+				2B3704C42B2BBC4500101808 /* SIGNBOAR.ttf in Resources */,
 				2B8B70BE2AE2640200F27652 /* Assets.xcassets in Resources */,
 				2B6BF0192B1FAE4800DAAD23 /* Main.storyboard in Resources */,
 			);
@@ -463,6 +470,7 @@
 				2B7B23F42B16500A001FB4BC /* MarkFavoriteRequest.swift in Sources */,
 				2B8B70B22AE263FF00F27652 /* AppDelegate.swift in Sources */,
 				2BF1E0662B15135E00247132 /* TVListResponse.swift in Sources */,
+				2B3704C22B2BB6DF00101808 /* LogoutRequest.swift in Sources */,
 				2B6D196B2AF1C288001222E5 /* WatchlistViewController.swift in Sources */,
 				2BF1E06A2B15284B00247132 /* ActorDetailViewController.swift in Sources */,
 				2B3523D12B14AFBD0029733D /* ActorCollectionViewCell.swift in Sources */,
