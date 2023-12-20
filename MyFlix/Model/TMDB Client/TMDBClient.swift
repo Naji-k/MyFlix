@@ -1,5 +1,5 @@
 //
-//  TMDB Client.swift
+//  TMDBClient.swift
 //  MyFlix
 //
 //  Created by Naji Kanounji on 10/22/23.

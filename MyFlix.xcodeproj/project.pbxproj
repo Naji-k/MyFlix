@@ -31,7 +31,7 @@
 		2B7B23F42B16500A001FB4BC /* MarkFavoriteRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B7B23F32B16500A001FB4BC /* MarkFavoriteRequest.swift */; };
 		2B7B23F62B1653C3001FB4BC /* TMDBResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B7B23F52B1653C3001FB4BC /* TMDBResponse.swift */; };
 		2B7B23F82B166A73001FB4BC /* MultiResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B7B23F72B166A73001FB4BC /* MultiResponse.swift */; };
-		2B8072AC2AE509B200BE5FC8 /* TMDB Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8072AB2AE509B200BE5FC8 /* TMDB Client.swift */; };
+		2B8072AC2AE509B200BE5FC8 /* TMDBClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8072AB2AE509B200BE5FC8 /* TMDBClient.swift */; };
 		2B8B70B22AE263FF00F27652 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8B70B12AE263FF00F27652 /* AppDelegate.swift */; };
 		2B8B70B42AE263FF00F27652 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8B70B32AE263FF00F27652 /* SceneDelegate.swift */; };
 		2B8B70BC2AE263FF00F27652 /* MyFlix.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2B8B70BA2AE263FF00F27652 /* MyFlix.xcdatamodeld */; };
@@ -98,7 +98,7 @@
 		2B7B23F32B16500A001FB4BC /* MarkFavoriteRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkFavoriteRequest.swift; sourceTree = "<group>"; };
 		2B7B23F52B1653C3001FB4BC /* TMDBResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDBResponse.swift; sourceTree = "<group>"; };
 		2B7B23F72B166A73001FB4BC /* MultiResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiResponse.swift; sourceTree = "<group>"; };
-		2B8072AB2AE509B200BE5FC8 /* TMDB Client.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TMDB Client.swift"; sourceTree = "<group>"; };
+		2B8072AB2AE509B200BE5FC8 /* TMDBClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDBClient.swift; sourceTree = "<group>"; };
 		2B8B70AE2AE263FF00F27652 /* MyFlix.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyFlix.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B8B70B12AE263FF00F27652 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2B8B70B32AE263FF00F27652 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -174,7 +174,7 @@
 		2B8072A82AE5094C00BE5FC8 /* TMDB Client */ = {
 			isa = PBXGroup;
 			children = (
-				2B8072AB2AE509B200BE5FC8 /* TMDB Client.swift */,
+				2B8072AB2AE509B200BE5FC8 /* TMDBClient.swift */,
 				2B02AB2E2AEC7E830000DB4B /* TMDB.swift */,
 			);
 			path = "TMDB Client";
@@ -460,7 +460,7 @@
 				2BA2ED452AF07D4000416570 /* SessionResponse.swift in Sources */,
 				2B7B23F82B166A73001FB4BC /* MultiResponse.swift in Sources */,
 				2BD34ED42AFEF58000AD688E /* DetailViewController.swift in Sources */,
-				2B8072AC2AE509B200BE5FC8 /* TMDB Client.swift in Sources */,
+				2B8072AC2AE509B200BE5FC8 /* TMDBClient.swift in Sources */,
 				2B02AB2F2AEC7E830000DB4B /* TMDB.swift in Sources */,
 				2BF1E0682B15237A00247132 /* ActorDetailResponse.swift in Sources */,
 				2B6A8E452AE8775E006A18D3 /* Switcher.swift in Sources */,
