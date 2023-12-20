@@ -36,7 +36,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="393" height="350"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view alpha="0.85000002384185791" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AIc-0C-f3e">
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AIc-0C-f3e">
                                                     <rect key="frame" x="15" y="8" width="363" height="48"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="teJ-RM-yKV">
@@ -126,6 +126,7 @@
                                                 <constraint firstItem="F3J-L1-DcD" firstAttribute="trailing" secondItem="5fn-Vd-f6T" secondAttribute="trailingMargin" id="uaq-2j-rfk"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
                                             <outlet property="collectionView" destination="F3J-L1-DcD" id="vNc-Rc-6YA"/>
                                             <outlet property="label" destination="teJ-RM-yKV" id="qKM-NQ-6yb"/>
@@ -141,7 +142,6 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="j7U-tg-GbG"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <color key="tintColor" red="0.87734309610000005" green="0.89022154740000004" blue="0.92885690109999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="mag-HR-9qk" firstAttribute="leading" secondItem="j7U-tg-GbG" secondAttribute="leading" id="0Bb-TV-fBC"/>
                             <constraint firstItem="j7U-tg-GbG" firstAttribute="trailing" secondItem="mag-HR-9qk" secondAttribute="trailing" id="47z-sc-bpJ"/>
@@ -188,16 +188,16 @@
                                 </constraints>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="EGr-tA-IQc">
-                                <rect key="frame" x="25" y="349.66666666666663" width="343" height="272.66666666666663"/>
+                                <rect key="frame" x="25" y="350" width="343" height="272"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Login with User name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rEa-yY-DhQ">
-                                        <rect key="frame" x="0.0" y="0.0" width="343" height="14.333333333333334"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="14"/>
                                         <fontDescription key="fontDescription" name="Signboard" family="Signboard" pointSize="12"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="qfo-1z-dS8" customClass="LoginTextField" customModule="MyFlix" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="30.333333333333314" width="343" height="32"/>
+                                        <rect key="frame" x="0.0" y="30" width="343" height="32"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="32" id="2O9-B8-kTv"/>
                                         </constraints>
@@ -205,7 +205,7 @@
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="84C-WR-QxI" customClass="LoginTextField" customModule="MyFlix" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="78.333333333333314" width="343" height="32"/>
+                                        <rect key="frame" x="0.0" y="78" width="343" height="32"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="32" id="v0R-A2-aXC"/>
                                         </constraints>
@@ -213,7 +213,7 @@
                                         <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES" secureTextEntry="YES" textContentType="password"/>
                                     </textField>
                                     <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t54-Vn-yk5">
-                                        <rect key="frame" x="0.0" y="126.33333333333331" width="343" height="32"/>
+                                        <rect key="frame" x="0.0" y="126" width="343" height="32"/>
                                         <color key="backgroundColor" name="TintGreen"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="Button"/>
@@ -230,13 +230,13 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="OR" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wC5-Ke-1XQ">
-                                        <rect key="frame" x="0.0" y="174.33333333333331" width="343" height="14.333333333333343"/>
+                                        <rect key="frame" x="0.0" y="174" width="343" height="14"/>
                                         <fontDescription key="fontDescription" name="Signboard" family="Signboard" pointSize="12"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UD6-lW-TNK" customClass="LoginButton" customModule="MyFlix" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="204.66666666666669" width="343" height="32"/>
+                                        <rect key="frame" x="0.0" y="204" width="343" height="32"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="32" id="rCA-db-Wji"/>
                                         </constraints>
@@ -244,7 +244,7 @@
                                         <state key="normal" title="Login via Website"/>
                                     </button>
                                     <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="DiU-Ws-j6p">
-                                        <rect key="frame" x="0.0" y="252.66666666666669" width="343" height="20"/>
+                                        <rect key="frame" x="0.0" y="252" width="343" height="20"/>
                                     </activityIndicatorView>
                                 </subviews>
                                 <constraints>
@@ -340,7 +340,7 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iyv-sV-DRI">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iyv-sV-DRI">
                                         <rect key="frame" x="0.0" y="31.000000000000007" width="377" height="71.666666666666686"/>
                                         <string key="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
 </string>
@@ -391,7 +391,7 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MmD-bZ-ABI" userLabel="contentView">
                                                     <rect key="frame" x="0.0" y="0.0" width="90" height="112"/>
                                                     <subviews>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Bhx-g0-N5z">
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultProfile" translatesAutoresizingMaskIntoConstraints="NO" id="Bhx-g0-N5z">
                                                             <rect key="frame" x="8" y="4" width="74" height="74"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="74" id="2uX-cV-gKo"/>
@@ -490,7 +490,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" id="g46-vi-rlf">
-                                <rect key="frame" x="-4" y="-2" width="394" height="961"/>
+                                <rect key="frame" x="-5" y="-2" width="394" height="960"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HiJ-Ir-yf8" userLabel="profileContainerView">
@@ -618,7 +618,7 @@
                         <subviews>
                             <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="cfM-Pd-bu1">
                                 <rect key="frame" x="16" y="59" width="361" height="56"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="search"/>
                                 <connections>
                                     <outlet property="delegate" destination="NIv-IF-IUc" id="E7p-sV-mZB"/>
                                 </connections>
@@ -932,9 +932,10 @@
             <point key="canvasLocation" x="536.64122137404581" y="-1327.4647887323945"/>
         </scene>
     </scenes>
+    <color key="tintColor" name="TintGreen"/>
     <resources>
         <image name="MainMyFlix" width="128" height="128"/>
-        <image name="defaultProfile" width="180" height="180"/>
+        <image name="defaultProfile" width="1024" height="1024"/>
         <image name="profileTest" width="500" height="750"/>
         <image name="star.fill" catalog="system" width="128" height="116"/>
         <image name="xmark" catalog="system" width="128" height="113"/>

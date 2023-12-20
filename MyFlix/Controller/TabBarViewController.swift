@@ -24,12 +24,12 @@ class TabBarViewController: UITabBarController {
     func fetchFavLists() {
         TMDB.getFavoriteList(mediaType: "movies") { success, error in
             if let error = error {
-                print("cant load movie favorite list ",error.localizedDescription)
+                self.presentErrorAlert(message: "Can't load movie favorite list \(error.localizedDescription)")
             }
         }
         TMDB.getFavoriteList(mediaType: "tv") { success, error in
             if let error = error {
-                print("cant load tv favorite list ",error.localizedDescription)
+                self.presentErrorAlert(message: "Can't load TV favorite list \(error.localizedDescription)")
             }
         }
         
@@ -39,16 +39,19 @@ class TabBarViewController: UITabBarController {
         UITabBar.appearance().tintColor = UIColor(named: "TintGreen")
         let movieVC = self.storyboard?.instantiateViewController(withIdentifier: "MovieMainViewController") as! MovieMainViewController
         movieVC.viewControllerType = .movie
-        movieVC.tabBarItem = UITabBarItem(title: "Movie", image: UIImage(named: "Movie"), tag: 0)
-        
+        let tab1 = UINavigationController(rootViewController: movieVC)
+        tab1.tabBarItem = UITabBarItem(title: "Movie", image: UIImage(named: "Movie"), tag: 0)
+
         let tvVC = self.storyboard?.instantiateViewController(withIdentifier: "MovieMainViewController") as! MovieMainViewController
         tvVC.viewControllerType = .tv
-        tvVC.tabBarItem = UITabBarItem(title: "TV", image: UIImage(named: "TV"), tag: 1)
-        
-        let favVC = self.storyboard?.instantiateViewController(withIdentifier: "MoreViewController") as! MoreViewController
-        favVC.tabBarItem = UITabBarItem(title: "More", image: UIImage(named: "List"), tag: 2)
-        
-        viewControllers = [movieVC, tvVC, favVC]
+        let tab2 = UINavigationController(rootViewController: tvVC)
+        tab2.tabBarItem = UITabBarItem(title: "TV", image: UIImage(named: "TV"), tag: 1)
+
+        let moreVC = self.storyboard?.instantiateViewController(withIdentifier: "MoreViewController") as! MoreViewController
+        let tab3 = UINavigationController(rootViewController: moreVC)
+        tab3.tabBarItem = UITabBarItem(title: "More", image: UIImage(named: "List"), tag: 2)
+
+        viewControllers = [tab1, tab2, tab3]
         
     }
     func getKeychain() -> Bool

@@ -29,7 +29,7 @@ class TMDB {
         case getFavList(String)
         case getWatchList(String)
         case posterImageUrl(String)
-        case search(String)
+        case search(String, String)
         case credits(String, String)
         case personDetail(String)
         case addToFavorite
@@ -47,7 +47,7 @@ class TMDB {
             case .getFavList(let type): return Endpoints.base + "/account/\(TMDBClient.Auth.accountId)/favorite/\(type)" + Endpoints.apiKeyParam + "&session_id=\(TMDBClient.Auth.sessionId)"
             case .getWatchList(let type): return Endpoints.base + "/account/\(TMDBClient.Auth.accountId)/watchlist/\(type)" + Endpoints.apiKeyParam + "&session_id=\(TMDBClient.Auth.sessionId)"
             case .posterImageUrl(let path): return "https://image.tmdb.org/t/p/w500/\(path)"
-            case .search(let query): return Endpoints.base + "/search/multi" + Endpoints.apiKeyParam + "&query=\(query.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? "")"
+            case .search(let type, let query): return Endpoints.base + "/search/\(type)" + Endpoints.apiKeyParam + "&query=\(query.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? "")"
             case .credits(let type, let id): return Endpoints.base + "/\(type)/\(id)/credits" + Endpoints.apiKeyParam + "&session_id=\(TMDBClient.Auth.sessionId)"
             case .personDetail(let id): return Endpoints.base + "/person/\(id)" + Endpoints.apiKeyParam + "&session_id=\(TMDBClient.Auth.sessionId)"
             case .addToFavorite: return Endpoints.base + "/account/\(TMDBClient.Auth.accountId)" + "/favorite" + Endpoints.apiKeyParam + "&session_id=\(TMDBClient.Auth.sessionId)"
@@ -84,18 +84,15 @@ class TMDB {
     
     //return URLSessionTask to be easy to canceled,
     //so whenever you call this action you have access to this session task you can cancel it
-    class func search(query: String, completion: @escaping ([MultiTypeMediaResponse], Error?) -> Void) -> URLSessionTask {
-        let task =  URLSession.shared.dataTask(with: Endpoints.search(query).url) { data, response, error in
+    class func search(type: String, query: String, completion: @escaping ([MultiTypeMediaResponse], Error?) -> Void) -> URLSessionTask {
+        let task =  URLSession.shared.dataTask(with: Endpoints.search(type, query).url) { data, response, error in
             guard let data = data else {
                 DispatchQueue.main.async {
-                    print(error)
-                    
                     completion([], error)
                 }
                 return
-                
             }
-            print(String(data: data, encoding: .utf8))
+//            print(String(data: data, encoding: .utf8))
             do {
                 let jsonObject = try JSONDecoder().decode(MultiTypeMediaListResponse.self, from: data)
                 DispatchQueue.main.async {
@@ -163,7 +160,6 @@ class TMDB {
         request.addValue("application/json", forHTTPHeaderField: "content-type")
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
             guard let data = data else {
-                print("loginError:", error)
                 completion(false, error)
                 return
             }
@@ -191,7 +187,6 @@ class TMDB {
         request.addValue("application/json", forHTTPHeaderField: "content-type")
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
             guard let data = data else {
-                print("loginError:", error)
                 DispatchQueue.main.async {
                     completion(false, error)
                 }
@@ -217,7 +212,6 @@ class TMDB {
     class func getFavoriteList(mediaType: String, completion: @escaping (Bool, Error?) -> Void) {
         let task = URLSession.shared.dataTask(with: Endpoints.getFavList(mediaType).url) { data, response, error in
             guard let data = data else {
-                print(error)
                 completion(false, error)
                 return
             }
@@ -286,8 +280,6 @@ class TMDB {
                 }
             } catch {
                 DispatchQueue.main.async {
-                    let string = String(data: data, encoding: .utf8)
-                    //                    print(string ?? "error")
                     print(error.localizedDescription)
                     completion(nil, error)
                     
@@ -302,7 +294,6 @@ class TMDB {
         let task = URLSession.shared.dataTask(with: Endpoints.personDetail(personID).url) { data, response, error in
             
             guard let data = data else{
-                print(error)
                 completion(nil, error)
                 return
             }
@@ -357,7 +348,6 @@ class TMDB {
     class func getMediaMain (mediaType: String, sortedBy: String, completion: @escaping (MultiTypeMediaListResponse?, Error?) -> Void) {
         let task = URLSession.shared.dataTask(with: Endpoints.movieMain(mediaType,sortedBy).url) { data, response, error in
             guard let data = data else {
-                print(error)
                 completion(nil,error)
                 return
             }
@@ -365,9 +355,9 @@ class TMDB {
                 let jsonObject = try JSONDecoder().decode(MultiTypeMediaListResponse.self , from: data)
                 completion(jsonObject, nil)
             } catch {
-                let string = String(data: data, encoding: .utf8)
-                print(string ?? "error")
-                print(error.localizedDescription)
+//                let string = String(data: data, encoding: .utf8)
+//                print(string ?? "error")
+//                print(error.localizedDescription)
                 completion(nil, error)
             }
         }
@@ -404,8 +394,7 @@ class TMDB {
                 }
                 return
             }
-            let string = String(data: data, encoding: .utf8)
-            print(string)
+            if let string = String(data: data, encoding: .utf8) { print(string)}
             do {
                 let jsonData = try JSONDecoder().decode(UserListsResponse.self, from: data)
                 DispatchQueue.main.async {
@@ -414,8 +403,6 @@ class TMDB {
                 }
             } catch {
                 DispatchQueue.main.async {
-                    let string = String(data: data, encoding: .utf8)
-                    print(string)
                     completion(false,error)
                 }
             }
@@ -435,10 +422,8 @@ class TMDB {
             TMDBClient.Auth.requestToken = ""
             DispatchQueue.main.async {
                 completion()
-                
             }
         }
-        
         task.resume()
     }
 }

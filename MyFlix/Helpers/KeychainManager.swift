@@ -32,7 +32,7 @@ class SecureStore {
         
         try removeEntry(forKey: key)
         
-        let query = [
+        _ = [
             kSecClass: kSecClassGenericPassword,
             kSecAttrAccount: "_passwordForFacebook",
             kSecAttrTokenID: "" as String
@@ -117,22 +117,22 @@ extension SecureStoreError: LocalizedError {
 
 //caller
 
-func test() {
-    let security = SecureStore.init()
-
-    do {
-
-        try security.set(entry: "myPassword12345.12345", forKey: "_passwordForFacebook")
-
-        //to get value
-        let password = try security.getEntry(forKey: "_passwordForFacebook")
-        
-
-        print("password > ", password  )
-
-    } catch {
-        print("error > ", error.localizedDescription)
-    }
-}
+//func test() {
+//    let security = SecureStore.init()
+//
+//    do {
+//
+//        try security.set(entry: "myPassword12345.12345", forKey: "_passwordForFacebook")
+//
+//        //to get value
+//        let password = try security.getEntry(forKey: "_passwordForFacebook")
+//        
+//
+//        print("password > ", password  )
+//
+//    } catch {
+//        print("error > ", error.localizedDescription)
+//    }
+//}
 
 

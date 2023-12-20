@@ -10,20 +10,60 @@ import UIKit
 class MovieMainViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
-    
+    var searchBtn: UIBarButtonItem!
     var viewControllerType: Category = .tv
+    var refreshControl = UIRefreshControl()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let logo = UIImage(named: "MyFlixLabel")
+        let imageView = UIImageView(image: logo)
+        
+        imageView.contentMode = .scaleAspectFit
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        let titleViewHeight = navigationController?.navigationBar.frame.height ?? 44
+        let logoAspect = logo?.size.width
+        imageView.frame = CGRect(x: 0, y: 0, width: CGFloat(logoAspect!), height: titleViewHeight)
+        navigationItem.titleView = imageView
+ 
+
+    
         let appearance = UINavigationBarAppearance()
+        let searchBtn = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(search))
+        navigationItem.rightBarButtonItem = searchBtn
+        
+        if let titleView = navigationItem.titleView {
+            NSLayoutConstraint.activate([
+                titleView.centerXAnchor.constraint(equalTo: titleView.superview!.centerXAnchor),
+                titleView.centerYAnchor.constraint(equalTo: titleView.superview!.centerYAnchor)
+            ])
+        }
+
         appearance.backButtonAppearance.normal.titleTextAttributes = [.foregroundColor: UIColor.clear]
         navigationController?.navigationBar.tintColor = UIColor(named: "TintGreen")
         navigationController?.navigationBar.standardAppearance = appearance
         
+        
         fetchMediaData()
+        refreshControl.addTarget(self, action: #selector(refresh), for: UIControl.Event.valueChanged)
+        tableView.addSubview(refreshControl)
         
     }
+    override func viewDidAppear(_ animated: Bool) {
+        //make the title in the center
+        if let titleView = navigationItem.titleView {
+            NSLayoutConstraint.activate([
+                titleView.centerXAnchor.constraint(equalTo: titleView.superview!.centerXAnchor),
+                titleView.centerYAnchor.constraint(equalTo: titleView.superview!.centerYAnchor)
+            ])
+        }
+    }
     
+    @objc func refresh(sender: UIRefreshControl) {
+        fetchMediaData()
+        self.refreshControl.endRefreshing()
+    }
     
     func fetchMediaData() {
         let queue = DispatchQueue(label: "com.MyFlix.moviedata", attributes: .concurrent)
@@ -59,7 +99,7 @@ class MovieMainViewController: UIViewController {
                     if let data = data {
                         target(data)
                     } else if let error = error {
-                        // Handle error here
+                        self.presentErrorAlert(message: error.localizedDescription)
                     }
                 }
             }
@@ -70,6 +110,13 @@ class MovieMainViewController: UIViewController {
         }
     }
     
+    @objc func search (sender: UIBarButtonItem) {
+        let vc = storyboard?.instantiateViewController(withIdentifier: "SearchViewController") as! SearchViewController
+        vc.mediaType = self.viewControllerType
+        vc.title = self.viewControllerType.stringValue.uppercased()
+        navigationController?.pushViewController(vc, animated: true)
+    }
+
 }
 
 extension MovieMainViewController: UITableViewDelegate, UITableViewDataSource, MovieCollectionViewDelegate {
@@ -90,7 +137,6 @@ extension MovieMainViewController: UITableViewDelegate, UITableViewDataSource, M
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         if let cell = cell as? MovieTableViewCell {
             cell.collectionView.reloadData()
-            print(cell.movies?.count)
         }
     }
     

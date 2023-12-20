@@ -46,6 +46,7 @@
 		2B8FDBE42B176CAB00494EF6 /* MovieCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8FDBE32B176CAB00494EF6 /* MovieCollectionViewCell.swift */; };
 		2BA2ED432AF079F900416570 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BA2ED422AF079F900416570 /* TabBarViewController.swift */; };
 		2BA2ED452AF07D4000416570 /* SessionResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BA2ED442AF07D4000416570 /* SessionResponse.swift */; };
+		2BC26CD42B33816A0080D35D /* ViewController-Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC26CD32B33816A0080D35D /* ViewController-Helper.swift */; };
 		2BD34ED42AFEF58000AD688E /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD34ED32AFEF58000AD688E /* DetailViewController.swift */; };
 		2BD34ED62AFF018A00AD688E /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD34ED52AFF018A00AD688E /* SearchTableViewCell.swift */; };
 		2BF1E0622B15064D00247132 /* UiView-Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BF1E0612B15064D00247132 /* UiView-Helper.swift */; };
@@ -117,6 +118,7 @@
 		2B8FDBE32B176CAB00494EF6 /* MovieCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCollectionViewCell.swift; sourceTree = "<group>"; };
 		2BA2ED422AF079F900416570 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		2BA2ED442AF07D4000416570 /* SessionResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionResponse.swift; sourceTree = "<group>"; };
+		2BC26CD32B33816A0080D35D /* ViewController-Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController-Helper.swift"; sourceTree = "<group>"; };
 		2BD34ED32AFEF58000AD688E /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		2BD34ED52AFF018A00AD688E /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
 		2BF1E0612B15064D00247132 /* UiView-Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UiView-Helper.swift"; sourceTree = "<group>"; };
@@ -159,6 +161,7 @@
 				2B02AB262AEC65F60000DB4B /* NetworkHelper.swift */,
 				2BF595B92AF5C764003388DC /* KeychainManager.swift */,
 				2BF1E0612B15064D00247132 /* UiView-Helper.swift */,
+				2BC26CD32B33816A0080D35D /* ViewController-Helper.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -467,6 +470,7 @@
 				2B02AB272AEC65F60000DB4B /* NetworkHelper.swift in Sources */,
 				2B6D196D2AF1C422001222E5 /* MovieData.swift in Sources */,
 				2B8B70BC2AE263FF00F27652 /* MyFlix.xcdatamodeld in Sources */,
+				2BC26CD42B33816A0080D35D /* ViewController-Helper.swift in Sources */,
 				2B7B23F42B16500A001FB4BC /* MarkFavoriteRequest.swift in Sources */,
 				2B8B70B22AE263FF00F27652 /* AppDelegate.swift in Sources */,
 				2BF1E0662B15135E00247132 /* TVListResponse.swift in Sources */,
@@ -658,15 +662,17 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = MainNavy;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 8R567J3WC5;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MyFlix/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIRequiresFullScreen = NO;
+				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleDarkContent;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
@@ -687,15 +693,17 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = MainNavy;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 8R567J3WC5;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MyFlix/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIRequiresFullScreen = NO;
+				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleDarkContent;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.5;

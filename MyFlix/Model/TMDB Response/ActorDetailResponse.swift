@@ -17,13 +17,12 @@ struct ActorDetailResponse: Codable {
     let gender: Int
     let homepage: String?
     let id: Int
-    let imdb_id: String
+    let imdb_id: String?
     let knownForDepartment: String
     let name: String
     let placeOfBirth: String
     let popularity: Double
     let profilePath: String?
-    
     
     enum CodingKeys: String, CodingKey {
         case adult

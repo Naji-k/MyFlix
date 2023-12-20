@@ -41,16 +41,17 @@ class MoreViewController: UIViewController {
 
     
     @IBAction func logoutBtnPressed(_ sender: Any) {
-        print("LOG OUT")
-        TMDB.deleteSessionId {
-            if (self.removeKeychain(sessionId: "sessionID")) {
-                UserDefaults.standard.set(false, forKey: "status")
-                Switcher.updateRootVC()
-
-            } else {
-                print("Error removing sessionID")
+        self.askQuestionAlert(title: "Logout", message: "Are you sure?", yesHandler: {
+            TMDB.deleteSessionId {
+                if (self.removeKeychain(sessionId: "sessionID")) {
+                    UserDefaults.standard.set(false, forKey: "status")
+                    Switcher.updateRootVC()
+                    
+                } else {
+                    print("Error removing sessionID")
+                }
             }
-        }
+        })
     }
     
     func getAccountInfoCompletionHandler(success: Bool, error: Error?) {
@@ -58,7 +59,7 @@ class MoreViewController: UIViewController {
             self.tableView.reloadData()
             self.profileUserNameLabel.text = TMDBClient.profileInfo?.username ?? TMDBClient.profileInfo?.name
         } else {
-            print(error?.localizedDescription)
+            print(error?.localizedDescription ?? "error getting AccountInfo")
         }
         
     }
@@ -81,7 +82,7 @@ extension MoreViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let item = userLists
+//        let item = userLists
         var vc : UIViewController?
         switch indexPath.row {
         case 0: //favorites

@@ -50,10 +50,9 @@ class LoginViewController: UIViewController {
     
     func handleRequestTokenResponse(success: Bool, error: Error?) {
         if success {
-            print(success)
             TMDB.login(userName: self.userNameTextField.text ?? "", password: self.passwordTextField.text ?? "", completion: handleLoginResponse(success:error:))
         } else {
-            print("request token fails", error)
+            print(error ?? "request token fails")
         }
     }
     
@@ -61,14 +60,15 @@ class LoginViewController: UIViewController {
         if success {
             TMDB.createSessionId(completion: handleSessionId(success:error:))
         } else {
-            print("login fails ", error)
+//            print("login fails ", error)
+            presentErrorAlert(message: "Login fails")
         }
     }
     func handleSessionId(success: Bool, error: Error?) {
         if success {
             print(TMDBClient.Auth.sessionId)
             setKeychain(sessionId: TMDBClient.Auth.sessionId)
-            let value = getKeychain()
+            _ = getKeychain()
             handleLogin(loggedIn: true)
             print("login success")
         } else {

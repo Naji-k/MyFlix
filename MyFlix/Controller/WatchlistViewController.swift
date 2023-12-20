@@ -40,7 +40,7 @@ class WatchlistViewController: UIViewController {
         if success {
             self.tableView.reloadData()
         } else {
-            print(error?.localizedDescription)
+            self.presentErrorAlert(message: "Can't get watch list")
         }
     }
     

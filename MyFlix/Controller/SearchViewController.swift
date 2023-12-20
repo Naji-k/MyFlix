@@ -10,6 +10,7 @@ import UIKit
 class SearchViewController: UIViewController {
 
     var resultMovie = [MultiTypeMediaResponse]()
+    var mediaType: Category = .tv
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
@@ -30,9 +31,8 @@ extension SearchViewController: UISearchBarDelegate {
 
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         currentSearchTask?.cancel()
-        currentSearchTask = TMDB.search(query: searchText, completion: { movies, error in
+        currentSearchTask = TMDB.search(type: mediaType.stringValue, query: searchText, completion: { movies, error in
             self.resultMovie = movies
-            print(self.resultMovie.count)
             DispatchQueue.main.async {
                 self.tableView.reloadData()
             }
@@ -52,6 +52,10 @@ extension SearchViewController: UISearchBarDelegate {
         DispatchQueue.main.async {
             self.tableView.reloadData()
         }
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
     }
 }
 
@@ -85,6 +89,7 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
         let movie = resultMovie[indexPath.row]
         let vc = storyboard?.instantiateViewController(withIdentifier: "DetailViewController") as! DetailViewController
         vc.movie = movie
+        vc.mediaType = self.mediaType
         navigationController?.pushViewController(vc, animated: true)
         
     }

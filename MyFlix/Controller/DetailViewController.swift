@@ -19,6 +19,7 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var descLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
     var favBtn: UIBarButtonItem!
+    var rightButton: UIBarButtonItem!
     
     @IBOutlet weak var collectionView: UICollectionView!
     
@@ -35,16 +36,17 @@ class DetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.backButtonTitle = ""
         guard let movie = movie else {
             print("no movie")
             self.dismiss(animated: true)
             return
         }
-        
+        rightButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addToFav))
+        self.navigationController?.navigationItem.leftBarButtonItem = rightButton
+
         TMDB.getMediaCredits(mediaType: mediaType.stringValue, mediaID: movie.idString) { data, error in
             guard let data = data else {
-                print(error)
+                print(error?.localizedDescription ?? "error getting media credits")
                 return
             }
             self.actorList = data.cast
@@ -64,7 +66,7 @@ class DetailViewController: UIViewController {
             }
         }
         
-        titleLabel.text = ((movie.title ?? movie.name) ?? "") + " (" + ((movie.releaseDate ?? movie.firstAirDate) ?? "") + ")"
+        titleLabel.text = ((movie.title ?? movie.name) ?? "") + " (" + (movie.releaseYear ) + ")"
         descLabel.text = movie.overview
         rate.text = "\(String(format: "%.1f", movie.voteAverage ?? movie.popularity))"
         
@@ -88,7 +90,6 @@ class DetailViewController: UIViewController {
     }
     
     @objc func addToFav (sender: UIBarButtonItem) {
-        print("favPressed", mediaType.stringValue, movie?.idString)
         TMDB.markFavorite(mediaType: mediaType.stringValue, mediaID: movie!.id, favorite: !isFavorite, completion: handleFavoriteListResponse(success:error:))
     }
     
@@ -167,7 +168,6 @@ extension DetailViewController: UICollectionViewDelegate, UICollectionViewDataSo
         let actorID = actorList[indexPath.row].idString
         TMDB.getPersonDetails(personID: actorID) { data,error  in
             guard let data = data else {
-                print(error)
                 return
             }
             DispatchQueue.main.async {

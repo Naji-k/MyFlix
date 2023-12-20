@@ -19,15 +19,14 @@ class Switcher {
         let story = UIStoryboard(name: "Main", bundle: .main)
         print("status of userDefaults= ", status)
         if (status == true) {
-            let controller = story.instantiateViewController(withIdentifier: "TabBarViewController") as! TabBarViewController
-            
-            rootVC = UINavigationController(rootViewController: controller)//add navigationController just for this one
+            rootVC = story.instantiateViewController(withIdentifier: "TabBarViewController") as! TabBarViewController
         } else {
             rootVC = story.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
         }
         
         let appDelegate = UIApplication.shared.windows.first
         appDelegate?.rootViewController = rootVC
+        appDelegate?.overrideUserInterfaceStyle = .dark
         appDelegate?.makeKeyAndVisible()
     }
 }

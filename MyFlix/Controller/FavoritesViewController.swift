@@ -15,8 +15,6 @@ class FavoritesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //        TMDB.getFavoriteList(completion: handleGetFavList(success:error:))
-        //        TMDB.getFavoriteTVList(completion: handleGetFavList(success:error:))
         
     }
     
@@ -31,7 +29,7 @@ class FavoritesViewController: UIViewController {
         if success {
             self.tableView.reloadData()
         } else {
-            print(error?.localizedDescription)
+            self.presentErrorAlert(message: (error?.localizedDescription ?? "error adding to favorite!") as String)
         }
     }
     
