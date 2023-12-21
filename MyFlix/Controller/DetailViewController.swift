@@ -11,7 +11,7 @@ class DetailViewController: UIViewController {
     
     var movie: MultiTypeMediaResponse?
     var actorList: [Cast] = []
-    var mediaType: Category = .movie
+    var mediaType: mediaCategory = .movie
     
     @IBOutlet weak var coverImage: UIImageView!
     @IBOutlet weak var imageView: UIImageView!
@@ -19,7 +19,7 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var descLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
     var favBtn: UIBarButtonItem!
-    var rightButton: UIBarButtonItem!
+    var watchBtn: UIBarButtonItem!
     
     @IBOutlet weak var collectionView: UICollectionView!
     
@@ -33,6 +33,16 @@ class DetailViewController: UIViewController {
             return false
         }
     }
+    var isWatchList: Bool {
+        switch(mediaType) {
+        case.movie:
+            return MovieData.movieWatchList.contains{$0.id == movie?.id}
+        case.tv :
+            return MovieData.tvWatchList.contains{$0.id == movie?.id}
+        case .person:
+            return false
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,8 +51,6 @@ class DetailViewController: UIViewController {
             self.dismiss(animated: true)
             return
         }
-        rightButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addToFav))
-        self.navigationController?.navigationItem.leftBarButtonItem = rightButton
 
         TMDB.getMediaCredits(mediaType: mediaType.stringValue, mediaID: movie.idString) { data, error in
             guard let data = data else {
@@ -71,13 +79,12 @@ class DetailViewController: UIViewController {
         rate.text = "\(String(format: "%.1f", movie.voteAverage ?? movie.popularity))"
         
         favBtn = UIBarButtonItem(image: UIImage(systemName: "heart.fill") , style: .done, target: self, action: #selector(addToFav))
-        if (isFavorite) {
-            favBtn.tintColor = UIColor.red
-        } else {
-            favBtn.tintColor = .gray
-        }
+        watchBtn = UIBarButtonItem(image: UIImage(systemName: "bookmark.circle.fill"), style: .done, target: self, action: #selector(addToWatch))
+        toggleListButton(favBtn, enabled: isFavorite, type: .favorite)
+        toggleListButton(watchBtn, enabled: isWatchList, type: .watch)
+
         self.navigationItem.title = mediaType.stringValue.uppercased()
-        self.navigationItem.rightBarButtonItem = favBtn
+        self.navigationItem.rightBarButtonItems = [favBtn, watchBtn]
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -90,28 +97,38 @@ class DetailViewController: UIViewController {
     }
     
     @objc func addToFav (sender: UIBarButtonItem) {
-        TMDB.markFavorite(mediaType: mediaType.stringValue, mediaID: movie!.id, favorite: !isFavorite, completion: handleFavoriteListResponse(success:error:))
+        TMDB.markFavorite(listType: ListType.favorite, mediaType: mediaType.stringValue, mediaID: movie!.id, favorite: !isFavorite, watch: nil, completion: handleFavoriteListResponse(success:error:type:))
+    }
+    @objc func addToWatch(sender: UIBarButtonItem) {
+        TMDB.markFavorite(listType: ListType.watch, mediaType: mediaType.stringValue, mediaID: movie!.id, favorite: nil, watch: !isWatchList, completion: handleFavoriteListResponse(success:error:type:))
     }
     
-    func handleFavoriteListResponse(success: Bool, error: Error?) {
+    func handleFavoriteListResponse(success: Bool, error: Error?, type: ListType) {
         guard success else {
             print(error?.localizedDescription ?? "An error occurred.")
             return
         }
-        
+
         guard let movie = movie else {
             print("No movie or mediaType information available.")
             return
         }
-        switch self.mediaType {
-        case .movie:
+        switch (self.mediaType, type) {
+        case (.movie, .favorite):
             updateFavoriteList(&MovieData.favList, with: movie, isFavorite: isFavorite)
-        case .tv:
+        case (.tv, .favorite):
             updateFavoriteList(&MovieData.favTVList, with: movie, isFavorite: isFavorite)
-        case .person:
+        case (.movie, .watch):
+            updateFavoriteList(&MovieData.movieWatchList, with: movie, isFavorite: isWatchList)
+        case (.tv, .watch):
+            updateFavoriteList(&MovieData.tvWatchList, with: movie, isFavorite: isWatchList)
+        case (.person, .watch):
+            break
+        case (.person, .favorite):
             break
         }
-        toggleButton(favBtn, enabled: isFavorite)
+        toggleListButton(favBtn, enabled: isFavorite, type: .favorite)
+        toggleListButton(watchBtn, enabled: isWatchList, type: .watch)
     }
 
     private func updateFavoriteList(_ list: inout [MultiTypeMediaResponse], with movie: MultiTypeMediaResponse, isFavorite: Bool) {
@@ -127,11 +144,12 @@ class DetailViewController: UIViewController {
     }
     
     //to toggle the button(if it is in fav list or not) fill color
-    func toggleButton(_ button: UIBarButtonItem, enabled: Bool) {
-        if enabled {
-            button.tintColor = .red
-        } else {
-            button.tintColor = .gray
+    func toggleListButton(_ button: UIBarButtonItem, enabled: Bool, type: ListType) {
+        switch type {
+        case .favorite:
+            button.tintColor = enabled ? .red : .gray
+        case .watch:
+            button.tintColor = enabled ? UIColor(named: "TintGreen") : .gray
         }
     }
     

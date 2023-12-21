@@ -10,11 +10,13 @@ import Foundation
 struct MarkFavoriteRequest: Codable {
     let mediaType: String
     let mediaId: Int
-    let favorite: Bool
+    let favorite: Bool?
+    let watchlist: Bool?
     
     enum CodingKeys: String, CodingKey {
         case mediaType = "media_type"
         case mediaId = "media_id"
         case favorite
+        case watchlist
     }
 }

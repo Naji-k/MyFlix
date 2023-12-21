@@ -9,7 +9,7 @@ import UIKit
 
 class WatchlistViewController: UIViewController {
     
-    var mediaType: Category = .movie
+    var mediaType: mediaCategory = .movie
     
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {

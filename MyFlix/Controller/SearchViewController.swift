@@ -10,7 +10,7 @@ import UIKit
 class SearchViewController: UIViewController {
 
     var resultMovie = [MultiTypeMediaResponse]()
-    var mediaType: Category = .tv
+    var mediaType: mediaCategory = .tv
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!

@@ -73,8 +73,6 @@ extension FavoritesViewController: UITableViewDelegate, UITableViewDataSource {
             item = MovieData.favTVList[indexPath.row]
         }
         
-        //        item = MovieData.favTVList[indexPath.row]
-        //        let item = MovieData.favList[indexPath.row]
         let placeHolder = UIImage(named: "PosterPlaceholder")
         cell.textLabel?.text = item?.title ?? item?.name
         cell.imageView?.image = placeHolder
@@ -106,6 +104,43 @@ extension FavoritesViewController: UITableViewDelegate, UITableViewDataSource {
         vc.movie = item
         self.navigationController?.pushViewController(vc, animated: true)
         
+    }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            //here call markFav
+            var item: MultiTypeMediaResponse?
+            var mediaType: mediaCategory
+            switch indexPath.section {
+            case 0:
+                item = MovieData.favList[indexPath.row]
+                mediaType = .movie
+            case 1:
+                item = MovieData.favTVList[indexPath.row]
+                mediaType = .tv
+            default:
+                return
+            }
+            guard let unwrappedItem = item else { return }
+            //remove item and update tableView
+            TMDB.markFavorite(listType: .favorite, mediaType: mediaType.stringValue, mediaID: unwrappedItem.id, favorite: false, watch: nil, completion: { success, error,list  in
+                if success {
+                    if mediaType == .movie, let index = MovieData.favList.firstIndex(where: { $0.id == item?.id }) {
+                        MovieData.favList.remove(at: index)
+                        tableView.deleteRows(at: [indexPath], with: .fade)
+                    } else if mediaType == .tv, let index = MovieData.favTVList.firstIndex(where: { $0.id == item?.id }) {
+                        MovieData.favTVList.remove(at: index)
+                        tableView.deleteRows(at: [indexPath], with: .fade)
+                    }
+                } else {
+                    print(error?.localizedDescription ?? "failed to mark favorite")
+                }
+            })
+        }
     }
     
 }

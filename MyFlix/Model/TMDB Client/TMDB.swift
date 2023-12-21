@@ -32,7 +32,7 @@ class TMDB {
         case search(String, String)
         case credits(String, String)
         case personDetail(String)
-        case addToFavorite
+        case addToFavorite(String)
         case movieMain(String, String)
         case account
         case userLists
@@ -50,7 +50,8 @@ class TMDB {
             case .search(let type, let query): return Endpoints.base + "/search/\(type)" + Endpoints.apiKeyParam + "&query=\(query.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? "")"
             case .credits(let type, let id): return Endpoints.base + "/\(type)/\(id)/credits" + Endpoints.apiKeyParam + "&session_id=\(TMDBClient.Auth.sessionId)"
             case .personDetail(let id): return Endpoints.base + "/person/\(id)" + Endpoints.apiKeyParam + "&session_id=\(TMDBClient.Auth.sessionId)"
-            case .addToFavorite: return Endpoints.base + "/account/\(TMDBClient.Auth.accountId)" + "/favorite" + Endpoints.apiKeyParam + "&session_id=\(TMDBClient.Auth.sessionId)"
+            case .addToFavorite(let list): return Endpoints.base + "/account/\(TMDBClient.Auth.accountId)" + "/\(list)" + Endpoints.apiKeyParam + "&session_id=\(TMDBClient.Auth.sessionId)"
+
                 //MovieMainCall-> sort_by=now_playing || popular || top_rated
             case .movieMain(let type,let sort_by): return Endpoints.base + "/\(type)/\(sort_by)" + Endpoints.apiKeyParam + "&session_id=\(TMDBClient.Auth.sessionId)" + "&language=en-US&page=1"
             case .account: return Endpoints.base + "/account"  + Endpoints.apiKeyParam + "&session_id=\(TMDBClient.Auth.sessionId)"
@@ -316,26 +317,26 @@ class TMDB {
     }
     
     //mark Movie/TV as favorite
-    class func markFavorite(mediaType: String, mediaID: Int, favorite: Bool, completion: @escaping (Bool, Error?) -> Void) {
-        let body = MarkFavoriteRequest(mediaType: mediaType, mediaId: mediaID, favorite: favorite)
-        var request = URLRequest(url: Endpoints.addToFavorite.url)
+    class func markFavorite(listType: ListType, mediaType: String, mediaID: Int, favorite: Bool?,watch: Bool?, completion: @escaping (Bool, Error?, _ type:ListType) -> Void) {
+        let body = MarkFavoriteRequest(mediaType: mediaType, mediaId: mediaID, favorite: favorite, watchlist: watch)
+        var request = URLRequest(url: Endpoints.addToFavorite(listType.stringValue).url)
         request.httpMethod = "POST"
         request.httpBody = try! JSONEncoder().encode(body)
         request.addValue("application/json", forHTTPHeaderField: "content-type")
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
             guard let data = data else {
-                completion(false, error)
+                completion(false, error, listType)
                 return
             }
             do {
                 let responseObject = try JSONDecoder().decode(TMDBResponse.self, from: data)
                 DispatchQueue.main.async {
-                    completion(responseObject.statusCode == 1 || responseObject.statusCode == 12 || responseObject.statusCode == 13, nil)                    
+                    completion(responseObject.statusCode == 1 || responseObject.statusCode == 12 || responseObject.statusCode == 13, nil, listType)
                 }
                 //returned statusCode, 1=Success, 12=item updated Successfully, 13=item deleted Successfully
             } catch {
                 DispatchQueue.main.async {
-                    completion(false, error)
+                    completion(false, error, listType)
                 }
             }
             

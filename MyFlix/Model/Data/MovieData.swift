@@ -26,7 +26,7 @@ class MovieData {
     
 }
 
-enum Category {
+enum mediaCategory {
     case movie
     case tv
     case person
@@ -37,6 +37,19 @@ enum Category {
         case .movie : return "movie"
         case .tv : return "tv"
         case .person : return "person"
+        }
+    }
+}
+
+enum ListType {
+    case favorite
+    case watch
+    
+    var stringValue: String {
+        
+        switch self {
+        case .favorite : return "favorite"
+        case .watch : return "watchlist"
         }
     }
 }

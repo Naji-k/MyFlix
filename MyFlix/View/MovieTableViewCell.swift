@@ -14,7 +14,7 @@ protocol MovieCollectionViewDelegate: AnyObject {
 class MovieTableViewCell: UITableViewCell, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     
-    var viewControllerType: Category = .tv
+    var viewControllerType: mediaCategory = .tv
     
     weak var delegate: MovieCollectionViewDelegate?
     @IBOutlet weak var view: UIView!

@@ -11,58 +11,69 @@ class MovieMainViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     var searchBtn: UIBarButtonItem!
-    var viewControllerType: Category = .tv
+    var viewControllerType: mediaCategory = .tv
     var refreshControl = UIRefreshControl()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let logo = UIImage(named: "MyFlixLabel")
-        let imageView = UIImageView(image: logo)
-        
-        imageView.contentMode = .scaleAspectFit
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        let titleViewHeight = navigationController?.navigationBar.frame.height ?? 44
-        let logoAspect = logo?.size.width
-        imageView.frame = CGRect(x: 0, y: 0, width: CGFloat(logoAspect!), height: titleViewHeight)
-        navigationItem.titleView = imageView
+        setupSearchBarButton()
+        setupNavigationBarAppearance()
  
-
-    
-        let appearance = UINavigationBarAppearance()
-        let searchBtn = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(search))
-        navigationItem.rightBarButtonItem = searchBtn
-        
-        if let titleView = navigationItem.titleView {
-            NSLayoutConstraint.activate([
-                titleView.centerXAnchor.constraint(equalTo: titleView.superview!.centerXAnchor),
-                titleView.centerYAnchor.constraint(equalTo: titleView.superview!.centerYAnchor)
-            ])
-        }
-
-        appearance.backButtonAppearance.normal.titleTextAttributes = [.foregroundColor: UIColor.clear]
-        navigationController?.navigationBar.tintColor = UIColor(named: "TintGreen")
-        navigationController?.navigationBar.standardAppearance = appearance
-        
-        
         fetchMediaData()
+        
         refreshControl.addTarget(self, action: #selector(refresh), for: UIControl.Event.valueChanged)
         tableView.addSubview(refreshControl)
         
     }
-    override func viewDidAppear(_ animated: Bool) {
-        //make the title in the center
-        if let titleView = navigationItem.titleView {
-            NSLayoutConstraint.activate([
-                titleView.centerXAnchor.constraint(equalTo: titleView.superview!.centerXAnchor),
-                titleView.centerYAnchor.constraint(equalTo: titleView.superview!.centerYAnchor)
-            ])
-        }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setupNavigationBarLogo()
     }
+    
+    
     
     @objc func refresh(sender: UIRefreshControl) {
         fetchMediaData()
         self.refreshControl.endRefreshing()
+    }
+    
+    
+    private func setupNavigationBarLogo() {
+        guard let logo = UIImage(named: "MyFlixLabel") else { return }
+        let imageView = UIImageView(image: logo)
+        imageView.contentMode = .scaleAspectFit
+
+        // Create a container view that has the same width as the navigation bar
+        let titleViewContainer = UIView(frame: CGRect(x: 0, y: 0, width: self.navigationController?.navigationBar.frame.width ?? 0, height: self.navigationController?.navigationBar.frame.height ?? 0))
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        titleViewContainer.addSubview(imageView)
+
+        // Set imageView constraints
+        NSLayoutConstraint.activate([
+            imageView.centerXAnchor.constraint(equalTo: titleViewContainer.centerXAnchor),
+            imageView.centerYAnchor.constraint(equalTo: titleViewContainer.centerYAnchor),
+            imageView.heightAnchor.constraint(lessThanOrEqualTo: titleViewContainer.heightAnchor)
+        ])
+        
+        navigationItem.titleView = titleViewContainer
+        
+        titleViewContainer.layoutIfNeeded()
+    }
+        
+    private func setupNavigationBarAppearance() {
+        let appearance = UINavigationBarAppearance()
+        
+        appearance.backButtonAppearance.normal.titleTextAttributes = [.foregroundColor: UIColor.clear]
+        navigationController?.navigationBar.tintColor = UIColor(named: "TintGreen")
+        navigationController?.navigationBar.standardAppearance = appearance
+    }
+    
+    private func setupSearchBarButton() {
+        let searchBtn = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(search))
+        navigationItem.rightBarButtonItem = searchBtn
+        
     }
     
     func fetchMediaData() {
