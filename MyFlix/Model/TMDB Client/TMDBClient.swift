@@ -13,7 +13,7 @@ class TMDBClient {
     //    Get the user to authorize the request token
     //    Create a new session id with the authorized request token
     
-    static let apiKey = "bbaf9f6029e8bacc8d07c72fca003c32"
+    static let apiKey = "YOUR_API_KEY"
     
     struct Auth {
         static var accountId = 0

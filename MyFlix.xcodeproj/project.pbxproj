@@ -29,10 +29,10 @@
 		2B6D196F2AF1C55B001222E5 /* MovieResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B6D196E2AF1C55B001222E5 /* MovieResponse.swift */; };
 		2B6D19712AF1CB77001222E5 /* MovieListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B6D19702AF1CB77001222E5 /* MovieListResponse.swift */; };
 		2B74E3B82B34A2B4000FAAAA /* movie.gif in Resources */ = {isa = PBXBuildFile; fileRef = 2B74E3B72B34A2B4000FAAAA /* movie.gif */; };
-		2B74E3BD2B34A5FC000FAAAA /* ActorVC Medium.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 2B74E3B92B34A5FC000FAAAA /* ActorVC Medium.jpeg */; };
-		2B74E3BE2B34A5FC000FAAAA /* DetailVC Medium.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 2B74E3BA2B34A5FC000FAAAA /* DetailVC Medium.jpeg */; };
-		2B74E3BF2B34A5FC000FAAAA /* FavoriteVC Medium.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 2B74E3BB2B34A5FC000FAAAA /* FavoriteVC Medium.jpeg */; };
-		2B74E3C02B34A5FC000FAAAA /* MainVC Medium.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 2B74E3BC2B34A5FC000FAAAA /* MainVC Medium.jpeg */; };
+		2B74E3BD2B34A5FC000FAAAA /* ActorVC-Medium.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 2B74E3B92B34A5FC000FAAAA /* ActorVC-Medium.jpeg */; };
+		2B74E3BE2B34A5FC000FAAAA /* DetailVC-Medium.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 2B74E3BA2B34A5FC000FAAAA /* DetailVC-Medium.jpeg */; };
+		2B74E3BF2B34A5FC000FAAAA /* FavoriteVC-Medium.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 2B74E3BB2B34A5FC000FAAAA /* FavoriteVC-Medium.jpeg */; };
+		2B74E3C02B34A5FC000FAAAA /* MainVC-Medium.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 2B74E3BC2B34A5FC000FAAAA /* MainVC-Medium.jpeg */; };
 		2B7B23F42B16500A001FB4BC /* MarkFavoriteRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B7B23F32B16500A001FB4BC /* MarkFavoriteRequest.swift */; };
 		2B7B23F62B1653C3001FB4BC /* TMDBResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B7B23F52B1653C3001FB4BC /* TMDBResponse.swift */; };
 		2B7B23F82B166A73001FB4BC /* MultiResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B7B23F72B166A73001FB4BC /* MultiResponse.swift */; };
@@ -102,10 +102,10 @@
 		2B6D196E2AF1C55B001222E5 /* MovieResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieResponse.swift; sourceTree = "<group>"; };
 		2B6D19702AF1CB77001222E5 /* MovieListResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListResponse.swift; sourceTree = "<group>"; };
 		2B74E3B72B34A2B4000FAAAA /* movie.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = movie.gif; sourceTree = "<group>"; };
-		2B74E3B92B34A5FC000FAAAA /* ActorVC Medium.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "ActorVC Medium.jpeg"; sourceTree = "<group>"; };
-		2B74E3BA2B34A5FC000FAAAA /* DetailVC Medium.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "DetailVC Medium.jpeg"; sourceTree = "<group>"; };
-		2B74E3BB2B34A5FC000FAAAA /* FavoriteVC Medium.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "FavoriteVC Medium.jpeg"; sourceTree = "<group>"; };
-		2B74E3BC2B34A5FC000FAAAA /* MainVC Medium.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "MainVC Medium.jpeg"; sourceTree = "<group>"; };
+		2B74E3B92B34A5FC000FAAAA /* ActorVC-Medium.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "ActorVC-Medium.jpeg"; sourceTree = "<group>"; };
+		2B74E3BA2B34A5FC000FAAAA /* DetailVC-Medium.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "DetailVC-Medium.jpeg"; sourceTree = "<group>"; };
+		2B74E3BB2B34A5FC000FAAAA /* FavoriteVC-Medium.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "FavoriteVC-Medium.jpeg"; sourceTree = "<group>"; };
+		2B74E3BC2B34A5FC000FAAAA /* MainVC-Medium.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "MainVC-Medium.jpeg"; sourceTree = "<group>"; };
 		2B7B23F32B16500A001FB4BC /* MarkFavoriteRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkFavoriteRequest.swift; sourceTree = "<group>"; };
 		2B7B23F52B1653C3001FB4BC /* TMDBResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDBResponse.swift; sourceTree = "<group>"; };
 		2B7B23F72B166A73001FB4BC /* MultiResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiResponse.swift; sourceTree = "<group>"; };
@@ -179,10 +179,10 @@
 		2B74E3AE2B349FE0000FAAAA /* screenshots */ = {
 			isa = PBXGroup;
 			children = (
-				2B74E3B92B34A5FC000FAAAA /* ActorVC Medium.jpeg */,
-				2B74E3BA2B34A5FC000FAAAA /* DetailVC Medium.jpeg */,
-				2B74E3BB2B34A5FC000FAAAA /* FavoriteVC Medium.jpeg */,
-				2B74E3BC2B34A5FC000FAAAA /* MainVC Medium.jpeg */,
+				2B74E3B92B34A5FC000FAAAA /* ActorVC-Medium.jpeg */,
+				2B74E3BA2B34A5FC000FAAAA /* DetailVC-Medium.jpeg */,
+				2B74E3BB2B34A5FC000FAAAA /* FavoriteVC-Medium.jpeg */,
+				2B74E3BC2B34A5FC000FAAAA /* MainVC-Medium.jpeg */,
 				2B74E3B72B34A2B4000FAAAA /* movie.gif */,
 			);
 			path = screenshots;
@@ -443,15 +443,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2B74E3BD2B34A5FC000FAAAA /* ActorVC Medium.jpeg in Resources */,
-				2B74E3BE2B34A5FC000FAAAA /* DetailVC Medium.jpeg in Resources */,
+				2B74E3BD2B34A5FC000FAAAA /* ActorVC-Medium.jpeg in Resources */,
+				2B74E3BE2B34A5FC000FAAAA /* DetailVC-Medium.jpeg in Resources */,
 				2B74E3B82B34A2B4000FAAAA /* movie.gif in Resources */,
 				2B8B70C12AE2640200F27652 /* LaunchScreen.storyboard in Resources */,
-				2B74E3BF2B34A5FC000FAAAA /* FavoriteVC Medium.jpeg in Resources */,
+				2B74E3BF2B34A5FC000FAAAA /* FavoriteVC-Medium.jpeg in Resources */,
 				2B3704C42B2BBC4500101808 /* SIGNBOAR.ttf in Resources */,
 				2B8B70BE2AE2640200F27652 /* Assets.xcassets in Resources */,
 				2B6BF0192B1FAE4800DAAD23 /* Main.storyboard in Resources */,
-				2B74E3C02B34A5FC000FAAAA /* MainVC Medium.jpeg in Resources */,
+				2B74E3C02B34A5FC000FAAAA /* MainVC-Medium.jpeg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
