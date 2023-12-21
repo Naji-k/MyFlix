@@ -123,11 +123,10 @@ extension WatchlistViewController: UITableViewDataSource, UITableViewDelegate {
                 if success {
                     if self.mediaType == .movie, let index = MovieData.movieWatchList.firstIndex(where: { $0.id == item?.id }) {
                         MovieData.movieWatchList.remove(at: index)
-                        tableView.deleteRows(at: [indexPath], with: .fade)
                     } else if self.mediaType == .tv, let index = MovieData.tvWatchList.firstIndex(where: { $0.id == item?.id }) {
                         MovieData.tvWatchList.remove(at: index)
-                        tableView.deleteRows(at: [indexPath], with: .fade)
                     }
+                    tableView.deleteRows(at: [indexPath], with: .fade)
                 } else {
                     print(error?.localizedDescription ?? "failed to mark favorite")
                 }

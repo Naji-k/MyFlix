@@ -74,12 +74,7 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
         cell?.rateLabel.text = "\(String(format: "%.1f", movie.voteAverage ?? movie.popularity))"
         cell?.posterImageView.image = UIImage(named: "PosterPlaceholder")
         if let posterPath = movie.posterPath {
-            TMDB.downloadPosterImage(posterPath: posterPath) { data, error in
-                if let data = data {
-                    cell?.imageView?.image = UIImage(data: data)
-                    cell?.layoutIfNeeded()
-                }
-            }
+            cell?.imageView?.downloadImage(urlString: posterPath)
         }
         return cell!
     }

@@ -37,10 +37,7 @@ class ActorDetailViewController: UIViewController {
         nameLabel.text = actor.name
         bioLabel.text = actor.biography
         if let profilePath = actor.profilePath {
-            TMDB.downloadPosterImage(posterPath: profilePath) { data, error in
-                guard let data = data else { return }
-                self.profileImage.image = UIImage(data: data)
-            }
+            self.profileImage.downloadImage(urlString: TMDB.Endpoints.posterImageUrl(profilePath).stringValue)
         }
         profileImage.applyShadowWithCornerRadius(containerView: profileContainerView, cornerRadius: 10)
         //calculate scrollView Height

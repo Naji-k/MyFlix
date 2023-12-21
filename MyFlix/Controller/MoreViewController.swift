@@ -17,10 +17,11 @@ class MoreViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var logoutBtn: UIButton!
     let userLists = ["Favorite", "TV Watch List", "Movie Watch List"]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         TMDB.getAccountInfo(completion: getAccountInfoCompletionHandler(success:error:))
-        // Do any additional setup after loading the view.
+        setupNavigationBarAppearance()
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -37,6 +38,14 @@ class MoreViewController: UIViewController {
             print("error > ", error.localizedDescription)
             return false
         }
+    }
+    
+    private func setupNavigationBarAppearance() {
+        let appearance = UINavigationBarAppearance()
+        
+        appearance.backButtonAppearance.normal.titleTextAttributes = [.foregroundColor: UIColor.clear]
+        navigationController?.navigationBar.tintColor = UIColor(named: "TintGreen")
+        navigationController?.navigationBar.standardAppearance = appearance
     }
 
     

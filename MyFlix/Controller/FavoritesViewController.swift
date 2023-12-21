@@ -76,6 +76,7 @@ extension FavoritesViewController: UITableViewDelegate, UITableViewDataSource {
         let placeHolder = UIImage(named: "PosterPlaceholder")
         cell.textLabel?.text = item?.title ?? item?.name
         cell.imageView?.image = placeHolder
+        
         if let posterPath = item?.posterPath {
             TMDB.downloadPosterImage(posterPath: posterPath) { data, error in
                 guard let data = data else { return }
@@ -131,11 +132,10 @@ extension FavoritesViewController: UITableViewDelegate, UITableViewDataSource {
                 if success {
                     if mediaType == .movie, let index = MovieData.favList.firstIndex(where: { $0.id == item?.id }) {
                         MovieData.favList.remove(at: index)
-                        tableView.deleteRows(at: [indexPath], with: .fade)
                     } else if mediaType == .tv, let index = MovieData.favTVList.firstIndex(where: { $0.id == item?.id }) {
                         MovieData.favTVList.remove(at: index)
-                        tableView.deleteRows(at: [indexPath], with: .fade)
                     }
+                    tableView.deleteRows(at: [indexPath], with: .fade)
                 } else {
                     print(error?.localizedDescription ?? "failed to mark favorite")
                 }

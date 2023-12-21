@@ -100,17 +100,10 @@ class DetailViewController: UIViewController {
     
     private func downloadCoverProfileImages(_ movie: MultiTypeMediaResponse) {
         if let image = movie.posterPath {
-            TMDB.downloadPosterImage(posterPath: image) { data, error in
-                guard let data = data else { print("error image detailVC"); return }
-                self.imageView.image = UIImage(data: data)
-            }
+            self.imageView.downloadImage(urlString: TMDB.Endpoints.posterImageUrl(image).stringValue)
         }
         if let cover =  movie.backdropPath {
-            TMDB.downloadPosterImage(posterPath: cover) { data, error in
-                guard let data = data else {
-                    print("error with cover"); return}
-                self.coverImage.image = UIImage(data: data)
-            }
+            self.coverImage.downloadImage(urlString: TMDB.Endpoints.posterImageUrl(cover).stringValue)
         }
     }
     //MARK: - BarButtons Methods
@@ -181,18 +174,14 @@ extension DetailViewController: UICollectionViewDelegate, UICollectionViewDataSo
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell: ActorCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "ActorCollectionViewCell", for: indexPath) as! ActorCollectionViewCell
         let actor = actorList[indexPath.row]
-        let placeHolder = UIImage(named: "PosterPlaceholder")
+        let placeHolder = UIImage(named: "defaultProfile")
 
         cell.actorNameLabel.text = actor.name
         cell.imageView?.image = placeHolder
 
         cell.imageView.circleImage()
         if let posterPath = actor.profilePath {
-            TMDB.downloadPosterImage(posterPath: posterPath) { data, error in
-                guard let data = data else { return }
-                cell.imageView?.image = UIImage(data: data)
-                cell.setNeedsLayout()
-            }
+            cell.imageView.downloadImage(urlString: TMDB.Endpoints.posterImageUrl(posterPath).stringValue)
         }
         
         return cell
