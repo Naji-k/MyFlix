@@ -22,11 +22,7 @@ class WatchlistViewController: UIViewController {
         case .person:
             return
         }
-        
-        let appearance = UINavigationBarAppearance()
-        appearance.configureWithTransparentBackground()
-        
-        UINavigationBar.appearance().standardAppearance = appearance
+        setupNavigationBarAppearance()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -43,7 +39,6 @@ class WatchlistViewController: UIViewController {
             self.presentErrorAlert(message: "Can't get watch list")
         }
     }
-    
 }
 
 extension WatchlistViewController: UITableViewDataSource, UITableViewDelegate {

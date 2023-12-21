@@ -62,13 +62,6 @@ class MovieMainViewController: UIViewController {
         titleViewContainer.layoutIfNeeded()
     }
         
-    private func setupNavigationBarAppearance() {
-        let appearance = UINavigationBarAppearance()
-        
-        appearance.backButtonAppearance.normal.titleTextAttributes = [.foregroundColor: UIColor.clear]
-        navigationController?.navigationBar.tintColor = UIColor(named: "TintGreen")
-        navigationController?.navigationBar.standardAppearance = appearance
-    }
     
     private func setupSearchBarButton() {
         let searchBtn = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(search))

@@ -20,6 +20,7 @@ class SearchViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setupNavigationBarAppearance()
     }
     
 }
@@ -74,7 +75,7 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
         cell?.rateLabel.text = "\(String(format: "%.1f", movie.voteAverage ?? movie.popularity))"
         cell?.posterImageView.image = UIImage(named: "PosterPlaceholder")
         if let posterPath = movie.posterPath {
-            cell?.imageView?.downloadImage(urlString: posterPath)
+            cell?.imageView?.downloadImage(urlString: TMDB.Endpoints.posterImageUrl(posterPath).stringValue)
         }
         return cell!
     }

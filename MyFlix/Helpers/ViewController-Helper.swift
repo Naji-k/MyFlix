@@ -40,4 +40,12 @@ extension UIViewController {
                self.present(alertController, animated: true)
            }
        }
+    
+    func setupNavigationBarAppearance() {
+        let appearance = UINavigationBarAppearance()
+        
+        appearance.backButtonAppearance.normal.titleTextAttributes = [.foregroundColor: UIColor.clear]
+        navigationController?.navigationBar.tintColor = UIColor(named: "TintGreen")
+        navigationController?.navigationBar.standardAppearance = appearance
+    }
 }
