@@ -188,16 +188,16 @@
                                 </constraints>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="EGr-tA-IQc">
-                                <rect key="frame" x="25" y="350" width="343" height="272"/>
+                                <rect key="frame" x="25" y="349.66666666666663" width="343" height="272.66666666666663"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Login with User name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rEa-yY-DhQ">
-                                        <rect key="frame" x="0.0" y="0.0" width="343" height="14"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="14.333333333333334"/>
                                         <fontDescription key="fontDescription" name="Signboard" family="Signboard" pointSize="12"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="qfo-1z-dS8" customClass="LoginTextField" customModule="MyFlix" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="30" width="343" height="32"/>
+                                        <rect key="frame" x="0.0" y="30.333333333333314" width="343" height="32"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="32" id="2O9-B8-kTv"/>
                                         </constraints>
@@ -205,7 +205,7 @@
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="84C-WR-QxI" customClass="LoginTextField" customModule="MyFlix" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="78" width="343" height="32"/>
+                                        <rect key="frame" x="0.0" y="78.333333333333314" width="343" height="32"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="32" id="v0R-A2-aXC"/>
                                         </constraints>
@@ -213,7 +213,7 @@
                                         <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES" secureTextEntry="YES" textContentType="password"/>
                                     </textField>
                                     <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t54-Vn-yk5">
-                                        <rect key="frame" x="0.0" y="126" width="343" height="32"/>
+                                        <rect key="frame" x="0.0" y="126.33333333333331" width="343" height="32"/>
                                         <color key="backgroundColor" name="TintGreen"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="Button"/>
@@ -230,13 +230,13 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="OR" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wC5-Ke-1XQ">
-                                        <rect key="frame" x="0.0" y="174" width="343" height="14"/>
+                                        <rect key="frame" x="0.0" y="174.33333333333331" width="343" height="14.333333333333343"/>
                                         <fontDescription key="fontDescription" name="Signboard" family="Signboard" pointSize="12"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UD6-lW-TNK" customClass="LoginButton" customModule="MyFlix" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="204" width="343" height="32"/>
+                                        <rect key="frame" x="0.0" y="204.66666666666669" width="343" height="32"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="32" id="rCA-db-Wji"/>
                                         </constraints>
@@ -244,7 +244,7 @@
                                         <state key="normal" title="Login via Website"/>
                                     </button>
                                     <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="DiU-Ws-j6p">
-                                        <rect key="frame" x="0.0" y="252" width="343" height="20"/>
+                                        <rect key="frame" x="0.0" y="252.66666666666669" width="343" height="20"/>
                                     </activityIndicatorView>
                                 </subviews>
                                 <constraints>
@@ -320,7 +320,7 @@
                                 <size key="shadowOffset" width="0.0" height="0.0"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="raJ-c1-wjH">
-                                <rect key="frame" x="143" y="291" width="24" height="15"/>
+                                <rect key="frame" x="143" y="291" width="100" height="15"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="15" id="c66-kN-Dxd"/>
                                 </constraints>
@@ -441,14 +441,6 @@
                                     <outlet property="delegate" destination="SBE-gP-K7r" id="Bo8-DE-TkV"/>
                                 </connections>
                             </collectionView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bookmark" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Dxu-Ot-yiN">
-                                <rect key="frame" x="362" y="292.33333333333331" width="15" height="14.666666666666686"/>
-                                <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="15" id="eWI-dP-xEd"/>
-                                    <constraint firstAttribute="height" constant="15" id="pMH-fX-LGX"/>
-                                </constraints>
-                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="0HF-CK-hcm"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -456,8 +448,7 @@
                             <constraint firstAttribute="trailing" secondItem="dmd-aa-dpw" secondAttribute="trailing" constant="16" id="1X4-aZ-pIi"/>
                             <constraint firstItem="Wif-ww-cKh" firstAttribute="leading" secondItem="xfJ-78-ByN" secondAttribute="leadingMargin" id="1e3-1z-2cv"/>
                             <constraint firstItem="dmd-aa-dpw" firstAttribute="leading" secondItem="qCh-py-u83" secondAttribute="trailing" constant="8" id="6wz-wI-3Dc"/>
-                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="raJ-c1-wjH" secondAttribute="trailing" constant="20" symbolic="YES" id="9eA-dE-Ozy"/>
-                            <constraint firstItem="Dxu-Ot-yiN" firstAttribute="top" secondItem="dmd-aa-dpw" secondAttribute="bottom" constant="1" id="FsW-ph-w1H"/>
+                            <constraint firstAttribute="trailing" secondItem="raJ-c1-wjH" secondAttribute="trailing" constant="150" id="9eA-dE-Ozy"/>
                             <constraint firstItem="Wif-ww-cKh" firstAttribute="top" secondItem="33v-I1-wGr" secondAttribute="bottom" constant="8" id="GjE-9i-NUx"/>
                             <constraint firstItem="raJ-c1-wjH" firstAttribute="leading" secondItem="NP1-tY-2sV" secondAttribute="trailing" constant="4" id="Ju8-29-thd"/>
                             <constraint firstItem="qCh-py-u83" firstAttribute="leading" secondItem="xfJ-78-ByN" secondAttribute="leading" constant="16" id="KjB-DT-Q9S"/>
@@ -474,9 +465,7 @@
                             <constraint firstItem="662-vj-JtQ" firstAttribute="leading" secondItem="xfJ-78-ByN" secondAttribute="leading" id="f1q-MD-8re"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Wif-ww-cKh" secondAttribute="trailing" id="fRw-Xx-BKA"/>
                             <constraint firstItem="33v-I1-wGr" firstAttribute="top" secondItem="qCh-py-u83" secondAttribute="bottom" constant="8" id="j3H-Qq-tFb"/>
-                            <constraint firstItem="33v-I1-wGr" firstAttribute="top" secondItem="Dxu-Ot-yiN" secondAttribute="bottom" constant="7" id="kQP-Lq-IzJ"/>
                             <constraint firstItem="dmd-aa-dpw" firstAttribute="top" secondItem="662-vj-JtQ" secondAttribute="bottom" constant="2" id="wpy-dU-dGV"/>
-                            <constraint firstItem="0HF-CK-hcm" firstAttribute="trailing" secondItem="Dxu-Ot-yiN" secondAttribute="trailing" constant="16" id="xvv-Bb-FS5"/>
                         </constraints>
                     </view>
                     <connections>
@@ -679,7 +668,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ONx-bn-AAO">
-                                                    <rect key="frame" x="132" y="89" width="24" height="11"/>
+                                                    <rect key="frame" x="132" y="89" width="59" height="11"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="11" id="XgB-e5-VnY"/>
                                                     </constraints>
@@ -705,7 +694,7 @@
                                                 <constraint firstItem="Nwe-w4-ozj" firstAttribute="leading" secondItem="32h-h7-anT" secondAttribute="leadingMargin" id="Yzm-tn-mLn"/>
                                                 <constraint firstItem="tkg-SH-PC1" firstAttribute="trailing" secondItem="32h-h7-anT" secondAttribute="trailingMargin" id="Zeb-IV-fav"/>
                                                 <constraint firstItem="7cy-re-QZj" firstAttribute="top" secondItem="tkg-SH-PC1" secondAttribute="bottom" id="dfL-Jz-kdU"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="ONx-bn-AAO" secondAttribute="trailing" constant="185" id="hR2-Xc-Mke"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="ONx-bn-AAO" secondAttribute="trailing" constant="150" id="hR2-Xc-Mke"/>
                                                 <constraint firstItem="tkg-SH-PC1" firstAttribute="leading" secondItem="Nwe-w4-ozj" secondAttribute="trailing" constant="8" id="hjI-2y-7mU"/>
                                                 <constraint firstItem="Nwe-w4-ozj" firstAttribute="top" secondItem="32h-h7-anT" secondAttribute="topMargin" constant="6" id="osM-hD-fDf"/>
                                                 <constraint firstItem="7cy-re-QZj" firstAttribute="trailing" secondItem="32h-h7-anT" secondAttribute="trailingMargin" id="qQp-y1-GFY"/>
@@ -946,7 +935,6 @@
     <color key="tintColor" name="TintGreen"/>
     <resources>
         <image name="MainMyFlix" width="128" height="128"/>
-        <image name="bookmark" catalog="system" width="110" height="128"/>
         <image name="defaultProfile" width="1024" height="1024"/>
         <image name="profileTest" width="500" height="750"/>
         <image name="star.fill" catalog="system" width="128" height="116"/>

@@ -102,5 +102,37 @@ extension WatchlistViewController: UITableViewDataSource, UITableViewDelegate {
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
     
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            var item: MultiTypeMediaResponse?
+            switch (mediaType) {
+            case.movie:
+                item = MovieData.movieWatchList[indexPath.row]
+            case .tv:
+                item = MovieData.tvWatchList[indexPath.row]
+            case .person:
+                return
+            }
+            guard let unwrappedItem = item else { return }
+            //remove item and update tableView
+            TMDB.markFavorite(listType: .watch, mediaType: mediaType.stringValue, mediaID: unwrappedItem.id, favorite: nil, watch: false, completion: { success, error,list  in
+                if success {
+                    if self.mediaType == .movie, let index = MovieData.movieWatchList.firstIndex(where: { $0.id == item?.id }) {
+                        MovieData.movieWatchList.remove(at: index)
+                        tableView.deleteRows(at: [indexPath], with: .fade)
+                    } else if self.mediaType == .tv, let index = MovieData.tvWatchList.firstIndex(where: { $0.id == item?.id }) {
+                        MovieData.tvWatchList.remove(at: index)
+                        tableView.deleteRows(at: [indexPath], with: .fade)
+                    }
+                } else {
+                    print(error?.localizedDescription ?? "failed to mark favorite")
+                }
+            })
+
+        }
+    }
 }

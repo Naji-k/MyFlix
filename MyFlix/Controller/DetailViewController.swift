@@ -44,22 +44,61 @@ class DetailViewController: UIViewController {
         }
     }
     
+    private func setupView() {
+        self.navigationItem.title = mediaType.stringValue.uppercased()
+        //setup Bar Buttons
+        favBtn = UIBarButtonItem(image: UIImage(systemName: "heart.fill") , style: .done, target: self, action: #selector(addToFav))
+        watchBtn = UIBarButtonItem(image: UIImage(systemName: "bookmark.circle.fill"), style: .done, target: self, action: #selector(addToWatch))
+
+        self.navigationItem.title = mediaType.stringValue.uppercased()
+        self.navigationItem.rightBarButtonItems = [favBtn, watchBtn]
+
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        setupView()
+        loadMovieDetails()
+        
+    }
+        
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        self.collectionView.reloadData()
+    }
+    
+    private func loadMovieDetails() {
         guard let movie = movie else {
-            print("no movie")
+            presentErrorAlert(message: "No movie details available.")
             self.dismiss(animated: true)
             return
         }
-
-        TMDB.getMediaCredits(mediaType: mediaType.stringValue, mediaID: movie.idString) { data, error in
+        //update ViewControllerUI
+        titleLabel.text = ((movie.title ?? movie.name) ?? "") + " (" + (movie.releaseYear ) + ")"
+        descLabel.text = movie.overview
+        rate.text = "\(String(format: "%.1f", movie.voteAverage ?? movie.popularity))"
+        toggleListButton(favBtn, enabled: isFavorite, type: .favorite)
+        toggleListButton(watchBtn, enabled: isWatchList, type: .watch)
+        
+        //fetching mediaCredits(actors)
+        fetchMediaCredits(mediaType: mediaType.stringValue, id: movie.idString)
+        //downloadingImages
+        downloadCoverProfileImages(movie)
+        
+    }
+    
+    private func fetchMediaCredits(mediaType: String, id: String) {
+        TMDB.getMediaCredits(mediaType: mediaType, mediaID: id) { data, error in
             guard let data = data else {
-                print(error?.localizedDescription ?? "error getting media credits")
+                self.presentErrorAlert(message: (error?.localizedDescription ?? "error getting media credits"))
                 return
             }
             self.actorList = data.cast
         }
-
+    }
+    
+    private func downloadCoverProfileImages(_ movie: MultiTypeMediaResponse) {
         if let image = movie.posterPath {
             TMDB.downloadPosterImage(posterPath: image) { data, error in
                 guard let data = data else { print("error image detailVC"); return }
@@ -73,29 +112,8 @@ class DetailViewController: UIViewController {
                 self.coverImage.image = UIImage(data: data)
             }
         }
-        
-        titleLabel.text = ((movie.title ?? movie.name) ?? "") + " (" + (movie.releaseYear ) + ")"
-        descLabel.text = movie.overview
-        rate.text = "\(String(format: "%.1f", movie.voteAverage ?? movie.popularity))"
-        
-        favBtn = UIBarButtonItem(image: UIImage(systemName: "heart.fill") , style: .done, target: self, action: #selector(addToFav))
-        watchBtn = UIBarButtonItem(image: UIImage(systemName: "bookmark.circle.fill"), style: .done, target: self, action: #selector(addToWatch))
-        toggleListButton(favBtn, enabled: isFavorite, type: .favorite)
-        toggleListButton(watchBtn, enabled: isWatchList, type: .watch)
-
-        self.navigationItem.title = mediaType.stringValue.uppercased()
-        self.navigationItem.rightBarButtonItems = [favBtn, watchBtn]
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        self.collectionView.reloadData()
-    }
-    
+    //MARK: - BarButtons Methods
     @objc func addToFav (sender: UIBarButtonItem) {
         TMDB.markFavorite(listType: ListType.favorite, mediaType: mediaType.stringValue, mediaID: movie!.id, favorite: !isFavorite, watch: nil, completion: handleFavoriteListResponse(success:error:type:))
     }
@@ -152,9 +170,8 @@ class DetailViewController: UIViewController {
             button.tintColor = enabled ? UIColor(named: "TintGreen") : .gray
         }
     }
-    
 }
-
+// MARK: - CollectionViewController Delegate
 extension DetailViewController: UICollectionViewDelegate, UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -195,14 +212,6 @@ extension DetailViewController: UICollectionViewDelegate, UICollectionViewDataSo
         }
         
     }
-    
-    //Dynamic layout
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-//        let itemWidth = (collectionView.frame.width - 36) / 3.0
-//        let itemHeight = itemWidth
-//        let size = CGSize(width: itemWidth, height: itemHeight)
-//        return size
-//    }
 
 }
 
