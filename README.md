@@ -2,7 +2,7 @@
 
 MyFlix is an iOS application developed as a practice project to demonstrate various API integration techniques in Swift. It leverages The Movie Database (TMDb) API to allow users to discover, search, and manage their favorite movies and series.
 
-## Video Demon
+## Video Demo
 
 ![Demo](https://github.com/Naji-k/MyFlix/blob/main/screenshots/movie.gif)
 
